@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="fw-bold">Admin Panel</h4>
+    <a href="{{ url_for('export_results') }}" class="btn btn-success">
+        <i class="fas fa-download me-2"></i>Export CSV
+    </a>
+</div>
+
+<div class="card p-4">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Skills</th>
+                    <th>Interviews</th>
+                    <th>Last Score</th>
+                    <th>Last Result</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in candidates %}
+                <tr>
+                    <td class="fw-semibold">{{ c.name }}</td>
+                    <td>{{ c.email }}</td>
+                    <td>
+                        {% for skill in c.skills[:3] %}
+                        <span class="badge bg-light text-dark me-1">{{ skill }}</span>
+                        {% endfor %}
+                        {% if c.skills|length > 3 %}
+                        <span class="badge bg-secondary">+{{ c.skills|length - 3 }}</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ c.total_interviews }}</td>
+                    <td>
+                        <span
+                            class="{% if c.last_score != 'N/A' and c.last_score >= 60 %}text-success{% else %}text-danger{% endif %}">
+                            {{ c.last_score }}%
+                        </span>
+                    </td>
+                    <td>
+                        <span
+                            class="badge {% if c.result == 'selected' %}bg-success{% elif c.result == 'rejected' %}bg-danger{% else %}bg-secondary{% endif %}">
+                            {{ c.result }}
+                        </span>
+                    </td>
+                    <td>
+                        {% if c.interview_id %}
+                        <a href="{{ url_for('results', interview_id=c.interview_id) }}"
+                            class="btn btn-sm btn-outline-primary me-2">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        {% endif %}
+                        <form action="{{ url_for('delete_candidate', user_id=c.id) }}" method="POST" class="d-inline"
+                            onsubmit="return confirm('Delete this candidate?')">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

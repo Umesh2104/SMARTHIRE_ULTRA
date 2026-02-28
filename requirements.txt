@@ -1,0 +1,6 @@
+Flask==2.3.3           # Web framework
+Werkzeug==2.3.7        # WSGI utilities
+PyPDF2==3.0.1          # PDF parsing
+python-dotenv==1.0.0   # Environment variables
+Flask-Mail==0.9.1      # Email (optional)
+gunicorn               # Production server

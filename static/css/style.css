@@ -1,0 +1,39 @@
+/* Custom styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8fafc;
+}
+
+/* Progress bar animation */
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* Question pills */
+.question-pill {
+    transition: all 0.2s ease;
+}
+
+.question-pill:hover {
+    background: #e9ecef !important;
+}
+
+/* Timer colors */
+#timer.timer-warning {
+    background-color: #f59e0b !important;
+}
+
+#timer.timer-danger {
+    background-color: #ef4444 !important;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Word count */
+.word-count-label.good {
+    color: #10b981;
+}

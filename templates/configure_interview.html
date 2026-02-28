@@ -1,0 +1,896 @@
+{% extends "base.html" %}
+{% block title %}Configure Interview{% endblock %}
+{% block content %}
+
+<style>
+    :root {
+        --primary: #6366f1;
+        --primary-dark: #4f46e5;
+        --secondary: #8b5cf6;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --dark: #1e293b;
+        --light: #f8fafc;
+    }
+
+    .config-header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        border-radius: 24px;
+        padding: 2rem;
+        color: white;
+        margin-bottom: 2rem;
+        box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.3);
+    }
+
+    .category-tabs {
+        border-bottom: 2px solid #e2e8f0;
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .category-tab {
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        border-radius: 12px 12px 0 0;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: #64748b;
+        background: transparent;
+        border: none;
+        font-size: 0.95rem;
+    }
+
+    .category-tab:hover {
+        color: var(--primary);
+        background: #f1f5f9;
+    }
+
+    .category-tab.active {
+        color: var(--primary);
+        background: white;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.02);
+        border-bottom: 3px solid var(--primary);
+    }
+
+    .skill-section {
+        background: white;
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s;
+    }
+
+    .skill-section:hover {
+        box-shadow: 0 8px 30px rgba(99, 102, 241, 0.08);
+        border-color: var(--primary);
+    }
+
+    .skill-section h5 {
+        color: var(--dark);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .skill-section h5 i {
+        color: var(--primary);
+        font-size: 1.25rem;
+    }
+
+    .skill-item {
+        background: var(--light);
+        border-radius: 16px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+    }
+
+    .skill-item:hover {
+        background: white;
+        border-color: var(--primary);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        transform: translateX(4px);
+    }
+
+    .skill-item .form-check-input {
+        width: 1.3rem;
+        height: 1.3rem;
+        cursor: pointer;
+        border-radius: 6px;
+        border: 2px solid #cbd5e1;
+    }
+
+    .skill-item .form-check-input:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    .skill-item .form-check-label {
+        flex-grow: 1;
+        font-weight: 500;
+        color: var(--dark);
+        cursor: pointer;
+    }
+
+    .skill-item select {
+        width: 80px;
+        border-radius: 30px;
+        border: 2px solid #e2e8f0;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--dark);
+        background: white;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .skill-item select:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    .skill-item select:disabled {
+        background: #f1f5f9;
+        border-color: #e2e8f0;
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+    .stat-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.25rem;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+    }
+
+    .stat-label {
+        color: #64748b;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1;
+    }
+
+    .stat-unit {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        margin-left: 0.25rem;
+    }
+
+    .summary-card {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        border-radius: 24px;
+        padding: 2rem;
+        color: white;
+        margin-top: 2rem;
+    }
+
+    .summary-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+    }
+
+    .summary-stat {
+        text-align: center;
+    }
+
+    .summary-stat .label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin-bottom: 0.5rem;
+    }
+
+    .summary-stat .value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .start-btn {
+        background: white;
+        color: var(--primary);
+        border: none;
+        border-radius: 16px;
+        padding: 1rem 3rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .start-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .start-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .resume-match {
+        background: #10b981;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+    }
+
+    .search-box {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 3rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 16px;
+        font-size: 0.95rem;
+        transition: all 0.3s;
+    }
+
+    .search-box input:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    }
+
+    .search-box i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+    }
+
+    .no-skills-message {
+        background: #fef3c7;
+        border-left: 4px solid #f59e0b;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+    }
+</style>
+
+<div class="config-header">
+    <div class="d-flex align-items-center justify-content-between">
+        <div>
+            <h1 class="display-5 fw-bold mb-2">Custom Interview Setup</h1>
+            <p class="mb-0 opacity-90">
+                {% if has_resume %}
+                <i class="fas fa-check-circle me-2"></i>Skills from your resume are highlighted with 5 questions each
+                {% else %}
+                <i class="fas fa-info-circle me-2"></i>No resume uploaded - showing all skills
+                {% endif %}
+            </p>
+        </div>
+        <div class="text-end">
+            <span class="badge bg-white text-primary p-3 rounded-4">
+                <i class="fas fa-robot fs-4 me-2"></i>
+                <span class="fw-bold">{{ session.user_name }}</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+{% if not has_resume %}
+<div class="no-skills-message">
+    <div class="d-flex align-items-center">
+        <i class="fas fa-exclamation-triangle fa-2x text-warning me-3"></i>
+        <div>
+            <h5 class="fw-bold mb-1">No Resume Uploaded</h5>
+            <p class="mb-0">You haven't uploaded a resume yet. Showing all available skills.
+                <a href="{{ url_for('dashboard') }}" class="text-primary fw-semibold">Upload resume</a> to get
+                personalized recommendations.
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<form action="{{ url_for('start_interview') }}" method="POST" id="interviewForm">
+
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+        <button type="button" class="category-tab active" onclick="showCategory('technical')">💻 Technical</button>
+        <button type="button" class="category-tab" onclick="showCategory('management')">📊 Management</button>
+        <button type="button" class="category-tab" onclick="showCategory('aptitude')">🧮 Aptitude</button>
+        <button type="button" class="category-tab" onclick="showCategory('softskills')">🤝 Soft Skills</button>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="skillSearch" placeholder="Search skills across all categories..."
+            onkeyup="filterSkills()">
+    </div>
+
+    <!-- Technical Category -->
+    <div id="technical-category" class="category-content">
+        <!-- Programming Languages -->
+        <div class="skill-section">
+            <h5>
+                <i class="fas fa-code"></i>
+                Programming Languages
+                <span class="resume-match" id="prog-lang-count">0 matched</span>
+            </h5>
+            <div class="row g-3" id="programming-languages-container">
+                {% set prog_languages = [
+                {'id': 'python', 'name': 'Python', 'icon': 'fab fa-python', 'color': '#3776AB'},
+                {'id': 'java', 'name': 'Java', 'icon': 'fab fa-java', 'color': '#007396'},
+                {'id': 'javascript', 'name': 'JavaScript', 'icon': 'fab fa-js', 'color': '#F7DF1E'},
+                {'id': 'typescript', 'name': 'TypeScript', 'icon': 'fab fa-js', 'color': '#3178C6'},
+                {'id': 'c', 'name': 'C', 'icon': 'fas fa-code', 'color': '#555555'},
+                {'id': 'cpp', 'name': 'C++', 'icon': 'fas fa-code', 'color': '#00599C'},
+                {'id': 'csharp', 'name': 'C#', 'icon': 'fas fa-code', 'color': '#239120'},
+                {'id': 'ruby', 'name': 'Ruby', 'icon': 'fas fa-gem', 'color': '#CC342D'},
+                {'id': 'go', 'name': 'Go', 'icon': 'fas fa-code', 'color': '#00ADD8'},
+                {'id': 'rust', 'name': 'Rust', 'icon': 'fas fa-code', 'color': '#000000'},
+                {'id': 'php', 'name': 'PHP', 'icon': 'fab fa-php', 'color': '#777BB4'},
+                {'id': 'swift', 'name': 'Swift', 'icon': 'fab fa-swift', 'color': '#FA7343'},
+                {'id': 'kotlin', 'name': 'Kotlin', 'icon': 'fab fa-android', 'color': '#7F52FF'}
+                ] %}
+                {% for lang in prog_languages %}
+                {% if not has_resume or lang.id in resume_skills %}
+                <div class="col-md-6 col-lg-4 skill-item" data-skill="{{ lang.name.lower() }}" {% if has_resume and
+                    lang.id not in resume_skills %}style="display: none;" {% endif %}>
+                    <input type="checkbox" name="tech_topics" value="{{ lang.id }}" class="form-check-input tech-check"
+                        id="tech_{{ lang.id }}" {% if resume_skills and lang.id in resume_skills %}checked{% endif %}>
+                    <label class="form-check-label" for="tech_{{ lang.id }}">
+                        <i class="{{ lang.icon }} me-2" style="color: {{ lang.color }}"></i>
+                        {{ lang.name }}
+                        {% if resume_skills and lang.id in resume_skills %}
+                        <span class="resume-match">✓ Resume</span>
+                        {% endif %}
+                    </label>
+                    <select name="tech_count_{{ lang.id }}" class="topic-count" {% if not (resume_skills and lang.id in
+                        resume_skills) %}disabled{% endif %}>
+                        <option value="0">0</option>
+                        <option value="5" {% if resume_skills and lang.id in resume_skills %}selected{% endif %}>5
+                        </option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Web Technologies -->
+        <div class="skill-section">
+            <h5>
+                <i class="fas fa-globe"></i>
+                Web Technologies
+                <span class="resume-match" id="web-tech-count">0 matched</span>
+            </h5>
+            <div class="row g-3">
+                {% set web_tech = [
+                {'id': 'html', 'name': 'HTML5', 'icon': 'fab fa-html5', 'color': '#E34F26'},
+                {'id': 'css', 'name': 'CSS3', 'icon': 'fab fa-css3-alt', 'color': '#1572B6'},
+                {'id': 'react', 'name': 'React', 'icon': 'fab fa-react', 'color': '#61DAFB'},
+                {'id': 'angular', 'name': 'Angular', 'icon': 'fab fa-angular', 'color': '#DD0031'},
+                {'id': 'vue', 'name': 'Vue.js', 'icon': 'fab fa-vuejs', 'color': '#4FC08D'},
+                {'id': 'nodejs', 'name': 'Node.js', 'icon': 'fab fa-node', 'color': '#339933'},
+                {'id': 'express', 'name': 'Express.js', 'icon': 'fas fa-server', 'color': '#000000'},
+                {'id': 'django', 'name': 'Django', 'icon': 'fab fa-python', 'color': '#092E20'},
+                {'id': 'flask', 'name': 'Flask', 'icon': 'fas fa-flask', 'color': '#000000'},
+                {'id': 'spring', 'name': 'Spring', 'icon': 'fab fa-java', 'color': '#6DB33F'},
+                {'id': 'bootstrap', 'name': 'Bootstrap', 'icon': 'fab fa-bootstrap', 'color': '#7952B3'},
+                {'id': 'tailwind', 'name': 'Tailwind CSS', 'icon': 'fas fa-wind', 'color': '#06B6D4'}
+                ] %}
+                {% for tech in web_tech %}
+                {% if not has_resume or tech.id in resume_skills %}
+                <div class="col-md-6 col-lg-4 skill-item" data-skill="{{ tech.name.lower() }}" {% if has_resume and
+                    tech.id not in resume_skills %}style="display: none;" {% endif %}>
+                    <input type="checkbox" name="tech_topics" value="{{ tech.id }}" class="form-check-input tech-check"
+                        id="tech_{{ tech.id }}" {% if resume_skills and tech.id in resume_skills %}checked{% endif %}>
+                    <label class="form-check-label" for="tech_{{ tech.id }}">
+                        <i class="{{ tech.icon }} me-2" style="color: {{ tech.color }}"></i>
+                        {{ tech.name }}
+                        {% if resume_skills and tech.id in resume_skills %}
+                        <span class="resume-match">✓ Resume</span>
+                        {% endif %}
+                    </label>
+                    <select name="tech_count_{{ tech.id }}" class="topic-count" {% if not (resume_skills and tech.id in
+                        resume_skills) %}disabled{% endif %}>
+                        <option value="0">0</option>
+                        <option value="5" {% if resume_skills and tech.id in resume_skills %}selected{% endif %}>5
+                        </option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-section">
+            <h5>
+                <i class="fas fa-database"></i>
+                Databases
+                <span class="resume-match" id="db-count">0 matched</span>
+            </h5>
+            <div class="row g-3">
+                {% set databases = [
+                {'id': 'sql', 'name': 'SQL', 'icon': 'fas fa-database', 'color': '#4479A1'},
+                {'id': 'mysql', 'name': 'MySQL', 'icon': 'fas fa-database', 'color': '#4479A1'},
+                {'id': 'postgresql', 'name': 'PostgreSQL', 'icon': 'fas fa-database', 'color': '#336791'},
+                {'id': 'mongodb', 'name': 'MongoDB', 'icon': 'fas fa-leaf', 'color': '#47A248'},
+                {'id': 'redis', 'name': 'Redis', 'icon': 'fas fa-bolt', 'color': '#DC382D'},
+                {'id': 'oracle', 'name': 'Oracle', 'icon': 'fas fa-database', 'color': '#F80000'},
+                {'id': 'sqlite', 'name': 'SQLite', 'icon': 'fas fa-database', 'color': '#003B57'},
+                {'id': 'firebase', 'name': 'Firebase', 'icon': 'fas fa-fire', 'color': '#FFCA28'}
+                ] %}
+                {% for db in databases %}
+                {% if not has_resume or db.id in resume_skills %}
+                <div class="col-md-6 col-lg-4 skill-item" data-skill="{{ db.name.lower() }}" {% if has_resume and db.id
+                    not in resume_skills %}style="display: none;" {% endif %}>
+                    <input type="checkbox" name="tech_topics" value="{{ db.id }}" class="form-check-input tech-check"
+                        id="tech_{{ db.id }}" {% if resume_skills and db.id in resume_skills %}checked{% endif %}>
+                    <label class="form-check-label" for="tech_{{ db.id }}">
+                        <i class="{{ db.icon }} me-2" style="color: {{ db.color }}"></i>
+                        {{ db.name }}
+                        {% if resume_skills and db.id in resume_skills %}
+                        <span class="resume-match">✓ Resume</span>
+                        {% endif %}
+                    </label>
+                    <select name="tech_count_{{ db.id }}" class="topic-count" {% if not (resume_skills and db.id in
+                        resume_skills) %}disabled{% endif %}>
+                        <option value="0">0</option>
+                        <option value="5" {% if resume_skills and db.id in resume_skills %}selected{% endif %}>5
+                        </option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Cloud & DevOps -->
+        <div class="skill-section">
+            <h5>
+                <i class="fas fa-cloud"></i>
+                Cloud & DevOps
+                <span class="resume-match" id="cloud-count">0 matched</span>
+            </h5>
+            <div class="row g-3">
+                {% set cloud = [
+                {'id': 'aws', 'name': 'AWS', 'icon': 'fab fa-aws', 'color': '#FF9900'},
+                {'id': 'azure', 'name': 'Azure', 'icon': 'fab fa-microsoft', 'color': '#0078D4'},
+                {'id': 'gcp', 'name': 'Google Cloud', 'icon': 'fab fa-google', 'color': '#4285F4'},
+                {'id': 'docker', 'name': 'Docker', 'icon': 'fab fa-docker', 'color': '#2496ED'},
+                {'id': 'kubernetes', 'name': 'Kubernetes', 'icon': 'fas fa-cubes', 'color': '#326CE5'},
+                {'id': 'jenkins', 'name': 'Jenkins', 'icon': 'fas fa-tools', 'color': '#D24939'},
+                {'id': 'git', 'name': 'Git', 'icon': 'fab fa-git-alt', 'color': '#F05032'},
+                {'id': 'github', 'name': 'GitHub', 'icon': 'fab fa-github', 'color': '#181717'}
+                ] %}
+                {% for item in cloud %}
+                {% if not has_resume or item.id in resume_skills %}
+                <div class="col-md-6 col-lg-4 skill-item" data-skill="{{ item.name.lower() }}" {% if has_resume and
+                    item.id not in resume_skills %}style="display: none;" {% endif %}>
+                    <input type="checkbox" name="tech_topics" value="{{ item.id }}" class="form-check-input tech-check"
+                        id="tech_{{ item.id }}" {% if resume_skills and item.id in resume_skills %}checked{% endif %}>
+                    <label class="form-check-label" for="tech_{{ item.id }}">
+                        <i class="{{ item.icon }} me-2" style="color: {{ item.color }}"></i>
+                        {{ item.name }}
+                        {% if resume_skills and item.id in resume_skills %}
+                        <span class="resume-match">✓ Resume</span>
+                        {% endif %}
+                    </label>
+                    <select name="tech_count_{{ item.id }}" class="topic-count" {% if not (resume_skills and item.id in
+                        resume_skills) %}disabled{% endif %}>
+                        <option value="0">0</option>
+                        <option value="5" {% if resume_skills and item.id in resume_skills %}selected{% endif %}>5
+                        </option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Data Science & ML -->
+        <div class="skill-section">
+            <h5>
+                <i class="fas fa-brain"></i>
+                Data Science & Machine Learning
+                <span class="resume-match" id="ds-count">0 matched</span>
+            </h5>
+            <div class="row g-3">
+                {% set ds = [
+                {'id': 'machine_learning', 'name': 'Machine Learning', 'icon': 'fas fa-brain', 'color': '#FF6F00'},
+                {'id': 'deep_learning', 'name': 'Deep Learning', 'icon': 'fas fa-layer-group', 'color': '#FF6F00'},
+                {'id': 'tensorflow', 'name': 'TensorFlow', 'icon': 'fas fa-code', 'color': '#FF6F00'},
+                {'id': 'pytorch', 'name': 'PyTorch', 'icon': 'fas fa-fire', 'color': '#EE4C2C'},
+                {'id': 'pandas', 'name': 'Pandas', 'icon': 'fas fa-table', 'color': '#150458'},
+                {'id': 'numpy', 'name': 'NumPy', 'icon': 'fas fa-calculator', 'color': '#013243'}
+                ] %}
+                {% for item in ds %}
+                {% if not has_resume or item.id in resume_skills %}
+                <div class="col-md-6 col-lg-4 skill-item" data-skill="{{ item.name.lower() }}" {% if has_resume and
+                    item.id not in resume_skills %}style="display: none;" {% endif %}>
+                    <input type="checkbox" name="tech_topics" value="{{ item.id }}" class="form-check-input tech-check"
+                        id="tech_{{ item.id }}" {% if resume_skills and item.id in resume_skills %}checked{% endif %}>
+                    <label class="form-check-label" for="tech_{{ item.id }}">
+                        <i class="{{ item.icon }} me-2" style="color: {{ item.color }}"></i>
+                        {{ item.name }}
+                        {% if resume_skills and item.id in resume_skills %}
+                        <span class="resume-match">✓ Resume</span>
+                        {% endif %}
+                    </label>
+                    <select name="tech_count_{{ item.id }}" class="topic-count" {% if not (resume_skills and item.id in
+                        resume_skills) %}disabled{% endif %}>
+                        <option value="0">0</option>
+                        <option value="5" {% if resume_skills and item.id in resume_skills %}selected{% endif %}>5
+                        </option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Management Category - Similar pattern for management skills -->
+    <div id="management-category" class="category-content" style="display: none;">
+        <div class="skill-section">
+            <h5>
+                <i class="fas fa-bullseye"></i>
+                Core Management
+                <span class="resume-match" id="core-mgmt-count">0 matched</span>
+            </h5>
+            <div class="row g-3">
+                {% set core_mgmt = [
+                {'id': 'leadership', 'name': 'Leadership', 'icon': 'fas fa-crown'},
+                {'id': 'team_management', 'name': 'Team Management', 'icon': 'fas fa-users'},
+                {'id': 'project_management', 'name': 'Project Management', 'icon': 'fas fa-tasks'},
+                {'id': 'strategic_planning', 'name': 'Strategic Planning', 'icon': 'fas fa-chart-line'},
+                {'id': 'decision_making', 'name': 'Decision Making', 'icon': 'fas fa-balance-scale'},
+                {'id': 'problem_solving', 'name': 'Problem Solving', 'icon': 'fas fa-puzzle-piece'},
+                {'id': 'conflict_resolution', 'name': 'Conflict Resolution', 'icon': 'fas fa-handshake'},
+                {'id': 'change_management', 'name': 'Change Management', 'icon': 'fas fa-sync-alt'},
+                {'id': 'risk_management', 'name': 'Risk Management', 'icon': 'fas fa-exclamation-triangle'},
+                {'id': 'time_management', 'name': 'Time Management', 'icon': 'fas fa-clock'},
+                {'id': 'negotiation', 'name': 'Negotiation', 'icon': 'fas fa-handshake'}
+                ] %}
+                {% for item in core_mgmt %}
+                {% if not has_resume or item.id in resume_skills %}
+                <div class="col-md-6 col-lg-4 skill-item" data-skill="{{ item.name.lower() }}" {% if has_resume and
+                    item.id not in resume_skills %}style="display: none;" {% endif %}>
+                    <input type="checkbox" name="mgmt_topics" value="{{ item.id }}" class="form-check-input mgmt-check"
+                        id="mgmt_{{ item.id }}" {% if resume_skills and item.id in resume_skills %}checked{% endif %}>
+                    <label class="form-check-label" for="mgmt_{{ item.id }}">
+                        <i class="{{ item.icon }} me-2" style="color: #10b981"></i>
+                        {{ item.name }}
+                        {% if resume_skills and item.id in resume_skills %}
+                        <span class="resume-match">✓ Resume</span>
+                        {% endif %}
+                    </label>
+                    <select name="mgmt_count_{{ item.id }}" class="topic-count" {% if not (resume_skills and item.id in
+                        resume_skills) %}disabled{% endif %}>
+                        <option value="0">0</option>
+                        <option value="5" {% if resume_skills and item.id in resume_skills %}selected{% endif %}>5
+                        </option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Aptitude Category -->
+    <div id="aptitude-category" class="category-content" style="display: none;">
+        <div class="skill-section">
+            <h5>
+                <i class="fas fa-calculator"></i>
+                Quantitative Aptitude
+                <span class="resume-match" id="quant-count">0 matched</span>
+            </h5>
+            <div class="row g-3">
+                {% set quant = [
+                {'id': 'percentages', 'name': 'Percentages', 'icon': 'fas fa-percent'},
+                {'id': 'averages', 'name': 'Averages', 'icon': 'fas fa-chart-line'},
+                {'id': 'ratios', 'name': 'Ratios & Proportions', 'icon': 'fas fa-balance-scale'},
+                {'id': 'probability', 'name': 'Probability', 'icon': 'fas fa-dice'},
+                {'id': 'time_work', 'name': 'Time & Work', 'icon': 'fas fa-clock'},
+                {'id': 'profit_loss', 'name': 'Profit & Loss', 'icon': 'fas fa-chart-pie'},
+                {'id': 'simple_interest', 'name': 'Simple Interest', 'icon': 'fas fa-coins'},
+                {'id': 'compound_interest', 'name': 'Compound Interest', 'icon': 'fas fa-coins'}
+                ] %}
+                {% for item in quant %}
+                {% if not has_resume or item.id in resume_skills %}
+                <div class="col-md-6 col-lg-4 skill-item" data-skill="{{ item.name.lower() }}" {% if has_resume and
+                    item.id not in resume_skills %}style="display: none;" {% endif %}>
+                    <input type="checkbox" name="apt_topics" value="{{ item.id }}" class="form-check-input apt-check"
+                        id="apt_{{ item.id }}" {% if resume_skills and item.id in resume_skills %}checked{% endif %}>
+                    <label class="form-check-label" for="apt_{{ item.id }}">
+                        <i class="{{ item.icon }} me-2" style="color: #f59e0b"></i>
+                        {{ item.name }}
+                        {% if resume_skills and item.id in resume_skills %}
+                        <span class="resume-match">✓ Resume</span>
+                        {% endif %}
+                    </label>
+                    <select name="apt_count_{{ item.id }}" class="topic-count" {% if not (resume_skills and item.id in
+                        resume_skills) %}disabled{% endif %}>
+                        <option value="0">0</option>
+                        <option value="5" {% if resume_skills and item.id in resume_skills %}selected{% endif %}>5
+                        </option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Soft Skills Category -->
+    <div id="softskills-category" class="category-content" style="display: none;">
+        <div class="skill-section">
+            <h5>
+                <i class="fas fa-comments"></i>
+                Communication Skills
+                <span class="resume-match" id="comm-count">0 matched</span>
+            </h5>
+            <div class="row g-3">
+                {% set soft = [
+                {'id': 'communication', 'name': 'Communication', 'icon': 'fas fa-comments'},
+                {'id': 'teamwork', 'name': 'Teamwork', 'icon': 'fas fa-users'},
+                {'id': 'adaptability', 'name': 'Adaptability', 'icon': 'fas fa-sync-alt'},
+                {'id': 'problem_solving', 'name': 'Problem Solving', 'icon': 'fas fa-puzzle-piece'},
+                {'id': 'creativity', 'name': 'Creativity', 'icon': 'fas fa-lightbulb'},
+                {'id': 'emotional_intelligence', 'name': 'Emotional Intelligence', 'icon': 'fas fa-heart'}
+                ] %}
+                {% for item in soft %}
+                {% if not has_resume or item.id in resume_skills %}
+                <div class="col-md-6 col-lg-4 skill-item" data-skill="{{ item.name.lower() }}" {% if has_resume and
+                    item.id not in resume_skills %}style="display: none;" {% endif %}>
+                    <input type="checkbox" name="soft_topics" value="{{ item.id }}" class="form-check-input soft-check"
+                        id="soft_{{ item.id }}" {% if resume_skills and item.id in resume_skills %}checked{% endif %}>
+                    <label class="form-check-label" for="soft_{{ item.id }}">
+                        <i class="{{ item.icon }} me-2" style="color: #8b5cf6"></i>
+                        {{ item.name }}
+                        {% if resume_skills and item.id in resume_skills %}
+                        <span class="resume-match">✓ Resume</span>
+                        {% endif %}
+                    </label>
+                    <select name="soft_count_{{ item.id }}" class="topic-count" {% if not (resume_skills and item.id in
+                        resume_skills) %}disabled{% endif %}>
+                        <option value="0">0</option>
+                        <option value="5" {% if resume_skills and item.id in resume_skills %}selected{% endif %}>5
+                        </option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-label">Technical</div>
+            <div class="stat-value" id="techTotal">0</div>
+            <span class="stat-unit">questions</span>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Management</div>
+            <div class="stat-value" id="mgmtTotal">0</div>
+            <span class="stat-unit">questions</span>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Aptitude</div>
+            <div class="stat-value" id="aptTotal">0</div>
+            <span class="stat-unit">questions</span>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Soft Skills</div>
+            <div class="stat-value" id="softTotal">0</div>
+            <span class="stat-unit">questions</span>
+        </div>
+    </div>
+
+    <!-- Summary Card -->
+    <div class="summary-card">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <div class="label">Total Questions</div>
+                        <div class="value" id="grandTotal">0</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="label">Duration</div>
+                        <div class="value" id="totalDuration">0</div>
+                        <span class="stat-unit">min</span>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="label">Topics</div>
+                        <div class="value" id="topicCount">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-end">
+                <button type="submit" class="start-btn" id="startBtn" disabled>
+                    <i class="fas fa-play me-2"></i>Start Interview
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    // Category switching
+    function showCategory(category) {
+        document.querySelectorAll('.category-content').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.category-tab').forEach(el => el.classList.remove('active'));
+        document.getElementById(category + '-category').style.display = 'block';
+        event.target.classList.add('active');
+    }
+
+    // Search functionality - only searches visible items
+    function filterSkills() {
+        const searchTerm = document.getElementById('skillSearch').value.toLowerCase();
+        document.querySelectorAll('.skill-item').forEach(item => {
+            // Only search items that are visible (based on resume filter)
+            if (window.getComputedStyle(item).display !== 'none') {
+                const skillName = item.dataset.skill;
+                if (skillName.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    // Count resume matches
+    document.addEventListener('DOMContentLoaded', function () {
+        const resumeSkills = {{ resume_skills| tojson
+    }};
+
+    // Update match counts for each section
+    document.querySelectorAll('.skill-section').forEach(section => {
+        const countSpan = section.querySelector('.resume-match');
+        if (countSpan) {
+            const matchedCount = section.querySelectorAll('.resume-match').length - 1; // Subtract the count span itself
+            countSpan.textContent = matchedCount + ' matched';
+        }
+    });
+
+    // Trigger update totals on page load to calculate initial totals
+    setTimeout(updateTotals, 100);
+    });
+
+    // Question count logic
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const select = this.closest('.skill-item').querySelector('select');
+            select.disabled = !this.checked;
+            if (!this.checked) {
+                select.value = '0';
+            }
+            updateTotals();
+        });
+    });
+
+    document.querySelectorAll('select').forEach(select => {
+        select.addEventListener('change', updateTotals);
+    });
+
+    function updateTotals() {
+        let techTotal = 0, mgmtTotal = 0, aptTotal = 0, softTotal = 0;
+        let topicCount = 0;
+
+        // Technical
+        document.querySelectorAll('.tech-check:checked').forEach(cb => {
+            const select = cb.closest('.skill-item').querySelector('select');
+            techTotal += parseInt(select.value) || 0;
+            topicCount++;
+        });
+
+        // Management
+        document.querySelectorAll('.mgmt-check:checked').forEach(cb => {
+            const select = cb.closest('.skill-item').querySelector('select');
+            mgmtTotal += parseInt(select.value) || 0;
+            topicCount++;
+        });
+
+        // Aptitude
+        document.querySelectorAll('.apt-check:checked').forEach(cb => {
+            const select = cb.closest('.skill-item').querySelector('select');
+            aptTotal += parseInt(select.value) || 0;
+            topicCount++;
+        });
+
+        // Soft Skills
+        document.querySelectorAll('.soft-check:checked').forEach(cb => {
+            const select = cb.closest('.skill-item').querySelector('select');
+            softTotal += parseInt(select.value) || 0;
+            topicCount++;
+        });
+
+        const grandTotal = techTotal + mgmtTotal + aptTotal + softTotal;
+
+        document.getElementById('techTotal').textContent = techTotal;
+        document.getElementById('mgmtTotal').textContent = mgmtTotal;
+        document.getElementById('aptTotal').textContent = aptTotal;
+        document.getElementById('softTotal').textContent = softTotal;
+        document.getElementById('grandTotal').textContent = grandTotal;
+        document.getElementById('topicCount').textContent = topicCount;
+        document.getElementById('totalDuration').textContent = grandTotal * 3;
+        document.getElementById('startBtn').disabled = grandTotal === 0;
+    }
+
+    // Form submission validation
+    document.getElementById('interviewForm').addEventListener('submit', function (e) {
+        const total = parseInt(document.getElementById('grandTotal').textContent);
+        if (total === 0) {
+            e.preventDefault();
+            alert('Please select at least one topic');
+        }
+    });
+</script>
+
+{% endblock %}

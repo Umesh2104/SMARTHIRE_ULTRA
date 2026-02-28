@@ -1,0 +1,783 @@
+{% extends "base.html" %}
+{% block title %}Interview Results{% endblock %}
+{% block content %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+        --primary: #6366f1;
+        --primary-dark: #4f46e5;
+        --secondary: #8b5cf6;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --dark: #1e293b;
+        --light: #f8fafc;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* Celebration Animations */
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: #f00;
+        top: -10px;
+        z-index: 9999;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(100vh) rotate(720deg);
+        }
+    }
+
+    .balloon {
+        position: fixed;
+        bottom: -100px;
+        width: 40px;
+        height: 50px;
+        background: radial-gradient(circle at 30% 30%, #fff, #ff6b6b);
+        border-radius: 50%;
+        z-index: 9998;
+        animation: float 8s ease-in infinite;
+    }
+
+    .balloon::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 30px;
+        background: #888;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-120vh) rotate(20deg);
+            opacity: 0;
+        }
+    }
+
+    .trophy-icon {
+        animation: bounce 1s ease infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .result-badge {
+        animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+
+        0%,
+        100% {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+
+        50% {
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+        }
+    }
+
+    /* Score Cards */
+    .score-circle {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        position: relative;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.3);
+        transition: all 0.3s;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .score-circle::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        opacity: 0.3;
+        z-index: -1;
+        animation: ripple 2s infinite;
+    }
+
+    @keyframes ripple {
+        0% {
+            transform: scale(1);
+            opacity: 0.3;
+        }
+
+        70% {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+    }
+
+    .score-circle.pass {
+        background: linear-gradient(135deg, #10b981, #059669);
+    }
+
+    .score-circle.fail {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+
+    .score-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .score-label {
+        font-size: 1rem;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    /* Question Cards */
+    .question-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-left: 6px solid;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        animation: slideIn 0.5s ease-out;
+        animation-fill-mode: both;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .question-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.2);
+    }
+
+    .question-card.good {
+        border-left-color: #10b981;
+    }
+
+    .question-card.average {
+        border-left-color: #f59e0b;
+    }
+
+    .question-card.poor {
+        border-left-color: #ef4444;
+    }
+
+    .question-number {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .answer-text {
+        background: #f8fafc;
+        padding: 1rem;
+        border-radius: 12px;
+        border-left: 3px solid var(--primary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-height: 100px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        cursor: pointer;
+    }
+
+    .answer-text.expanded {
+        max-height: 500px;
+    }
+
+    .answer-preview {
+        position: relative;
+    }
+
+    .answer-preview::after {
+        content: 'Click to expand';
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        font-size: 0.7rem;
+        color: var(--primary);
+        opacity: 0.7;
+    }
+
+    .research-btn {
+        background: white;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        border-radius: 30px;
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .research-btn:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -10px var(--primary);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .stat-item {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+    }
+
+    .stat-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        color: white;
+        font-size: 1.8rem;
+    }
+
+    .celebration-message {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 2rem;
+        animation: slideDown 0.8s ease;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .firework {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        animation: explode 1s ease-out forwards;
+    }
+
+    @keyframes explode {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(30);
+            opacity: 0;
+        }
+    }
+
+    .badge-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: inline-block;
+        margin: 0.5rem;
+    }
+</style>
+
+<!-- Celebration Elements Container -->
+<div id="celebration-container"></div>
+
+<div class="container py-4">
+    {% set overall = interview.scores.overall|default(0) %}
+    {% set tech = interview.scores.technical|default(0) %}
+    {% set comm = interview.scores.communication|default(0) %}
+    {% set is_pass = overall >= 60 %}
+    {% set answered_count = interview.questions|selectattr('answer', 'defined')|selectattr('answer', '!=',
+    '')|list|length %}
+    {% set unanswered_count = interview.questions|length - answered_count %}
+
+    <!-- Celebration Message -->
+    <div class="celebration-message result-badge">
+        <div class="position-relative">
+            {% if is_pass %}
+            <i class="fas fa-trophy fa-4x trophy-icon mb-3"></i>
+            <h1 class="display-4 fw-bold mb-3">Congratulations! 🎉</h1>
+            <p class="lead mb-0">You've successfully completed the interview with an impressive score!</p>
+            {% else %}
+            <i class="fas fa-flag-checkered fa-4x mb-3"></i>
+            <h1 class="display-4 fw-bold mb-3">Great Effort! 💪</h1>
+            <p class="lead mb-0">Every interview is a step toward success. Keep practicing!</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Main Results Card -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg" style="border-radius: 30px; overflow: hidden;">
+                <div class="card-header bg-white border-0 pt-5 pb-0 px-5">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <div>
+                            <span class="badge-custom">
+                                <i class="fas fa-calendar me-2"></i>{{ interview.date[:10] }}
+                            </span>
+                            <span class="badge-custom">
+                                <i class="fas fa-clock me-2"></i>{{ (interview.duration_seconds / 60)|int }} min
+                            </span>
+                            <span class="badge-custom">
+                                <i class="fas fa-question-circle me-2"></i>{{ interview.questions|length }} Questions
+                            </span>
+                        </div>
+                        <!-- Removed duplicate timer badge -->
+                    </div>
+                </div>
+
+                <div class="card-body px-5 py-4">
+                    <!-- Score Circles -->
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <div class="score-circle {% if tech >= 60 %}pass{% endif %}">
+                                <span class="score-number">{{ tech|int }}</span>
+                                <span class="score-label">Technical</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="score-circle {% if comm >= 60 %}pass{% endif %}">
+                                <span class="score-number">{{ comm|int }}</span>
+                                <span class="score-label">Communication</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="score-circle {% if is_pass %}pass{% else %}fail{% endif %}">
+                                <span class="score-number">{{ overall|int }}</span>
+                                <span class="score-label">Overall</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="fw-bold mb-1">{{ answered_count }}</h3>
+                            <p class="text-muted mb-0">Answered</p>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <h3 class="fw-bold mb-1">{{ unanswered_count }}</h3>
+                            <p class="text-muted mb-0">Unanswered</p>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="fw-bold mb-1">{{ ((tech + comm) / 2)|int }}%</h3>
+                            <p class="text-muted mb-0">Avg Score</p>
+                        </div>
+                    </div>
+
+                    <!-- Improvement Tips -->
+                    {% if not is_pass %}
+                    <div class="alert alert-warning border-0 bg-warning bg-opacity-10 p-4 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fas fa-lightbulb fa-3x text-warning"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Quick Improvement Tips</h5>
+                                <ul class="mb-0">
+                                    <li>Practice more with our <a href="{{ url_for('configure_interview') }}"
+                                            class="text-primary fw-semibold">custom interview</a> questions</li>
+                                    <li>Review the questions below and research the ones you missed</li>
+                                    <li>Try to provide more detailed answers with examples</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Questions Review -->
+                    <h4 class="fw-bold mb-4 mt-5">
+                        <i class="fas fa-question-circle text-primary me-2"></i>
+                        Detailed Question Review
+                    </h4>
+
+                    {% for q in interview.questions %}
+                    {% set score = interview.scores.per_question[loop.index0] if interview.scores.per_question and
+                    loop.index0 < interview.scores.per_question|length else None %} {% set
+                        avg_score=((score.technical_score|default(0) + score.communication_score|default(0)) / 2)|int if
+                        score else 0 %} <div
+                        class="question-card {% if avg_score >= 70 %}good{% elif avg_score >= 40 %}average{% else %}poor{% endif %}"
+                        style="animation-delay: {{ loop.index * 0.1 }}s">
+                        <div class="d-flex gap-4">
+                            <!-- Question Number -->
+                            <div class="question-number">
+                                {{ loop.index }}
+                            </div>
+
+                            <!-- Content -->
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="fw-semibold mb-0" style="color: var(--dark);">{{ q.question }}</h5>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <!-- Single Research Link -->
+                                        <a href="https://www.google.com/search?q={{ q.question|urlencode }}+interview+answer+guide"
+                                            target="_blank" class="research-btn"
+                                            title="Search for interview answers and guides">
+                                            <i class="fab fa-google"></i>
+                                            Research Answer
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Answer Section -->
+                                {% if q.answer and q.answer.strip() %}
+                                <div class="answer-preview mb-3">
+                                    <div class="answer-text" onclick="this.classList.toggle('expanded')">
+                                        {{ q.answer }}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="alert alert-danger bg-opacity-10 border-0 py-2 mb-3">
+                                    <i class="fas fa-exclamation-circle me-2"></i>
+                                    No answer provided
+                                </div>
+                                {% endif %}
+
+                                <!-- Score Badges -->
+                                {% if score %}
+                                <div class="d-flex flex-wrap align-items-center gap-3 mt-3">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill">
+                                        <i class="fas fa-code me-1"></i>
+                                        Technical: {{ score.technical_score }}%
+                                    </span>
+                                    <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill">
+                                        <i class="fas fa-comments me-1"></i>
+                                        Communication: {{ score.communication_score }}%
+                                    </span>
+                                    <span class="badge bg-info bg-opacity-10 text-info px-3 py-2 rounded-pill">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        {{ score.feedback }}
+                                    </span>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+
+                <!-- Action Buttons -->
+                <div class="d-flex flex-wrap gap-3 justify-content-center mt-5 pt-4 border-top">
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary px-5 py-3 rounded-pill">
+                        <i class="fas fa-th-large me-2"></i>
+                        Dashboard
+                    </a>
+                    <a href="{{ url_for('configure_interview') }}" class="btn btn-primary px-5 py-3 rounded-pill">
+                        <i class="fas fa-redo me-2"></i>
+                        New Interview
+                    </a>
+                </div>
+
+                <!-- Motivational Quote -->
+                <div class="text-center mt-5">
+                    <i class="fas fa-quote-left text-primary opacity-25 fa-2x mb-2"></i>
+                    <p class="fs-5 fst-italic text-muted">
+                        {% if is_pass %}
+                        "Success is not final, failure is not fatal: it is the courage to continue that counts."
+                        {% else %}
+                        "Every expert was once a beginner. Keep learning, keep growing!"
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    // Get values from template - FIXED SYNTAX
+    const overall = {{ overall }};
+    const tech = {{ tech }};
+    const comm = {{ comm }};
+    const isPass = {{ 'true' if is_pass else 'false' }};
+    const interviewDate = "{{ interview.date[:10] }}";
+    const questions = {{ interview.questions| tojson }};
+
+    // Celebration Effects
+    document.addEventListener('DOMContentLoaded', function () {
+        // Create celebration container if not exists
+        if (!document.getElementById('celebration-container')) {
+            const container = document.createElement('div');
+            container.id = 'celebration-container';
+            document.body.appendChild(container);
+        }
+
+        // Trigger celebrations based on score
+        if (isPass) {
+            launchConfetti(100);
+            launchBalloons(10);
+            showFireworks();
+        } else {
+            launchConfetti(30);
+        }
+    });
+
+    // Confetti Launcher
+    function launchConfetti(count = 50) {
+        const colors = ['#6366f1', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#3b82f6'];
+        const container = document.getElementById('celebration-container');
+
+        for (let i = 0; i < count; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confetti.style.opacity = Math.random();
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+                container.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 5000);
+            }, i * 50);
+        }
+    }
+
+    // Balloon Launcher
+    function launchBalloons(count = 5) {
+        const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dfe6e9'];
+        const container = document.getElementById('celebration-container');
+
+        for (let i = 0; i < count; i++) {
+            setTimeout(() => {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = Math.random() * 80 + 10 + 'vw';
+                balloon.style.background = `radial-gradient(circle at 30% 30%, #fff, ${colors[Math.floor(Math.random() * colors.length)]})`;
+                balloon.style.animationDuration = Math.random() * 4 + 6 + 's';
+                balloon.style.animationDelay = Math.random() * 2 + 's';
+
+                container.appendChild(balloon);
+
+                setTimeout(() => balloon.remove(), 10000);
+            }, i * 300);
+        }
+    }
+
+    // Fireworks Effect
+    function showFireworks() {
+        const colors = ['#6366f1', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444'];
+        const container = document.getElementById('celebration-container');
+
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.left = Math.random() * 80 + 10 + 'vw';
+                firework.style.top = Math.random() * 60 + 20 + 'vh';
+                firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                firework.style.boxShadow = `0 0 20px ${firework.style.backgroundColor}`;
+
+                container.appendChild(firework);
+
+                setTimeout(() => firework.remove(), 1000);
+            }, i * 500);
+        }
+    }
+
+    // Animate score circles on load
+    document.addEventListener('DOMContentLoaded', function () {
+        const circles = document.querySelectorAll('.score-circle');
+        circles.forEach((circle, index) => {
+            circle.style.animationDelay = index * 0.2 + 's';
+        });
+    });
+
+    // Add hover effect to question cards
+    document.querySelectorAll('.question-card').forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-5px) scale(1.02)';
+        });
+
+        card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Auto-expand answers that are too long
+    document.querySelectorAll('.answer-text').forEach(answer => {
+        if (answer.scrollHeight > 100) {
+            answer.classList.add('has-more');
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.answer-text.expanded').forEach(el => {
+                el.classList.remove('expanded');
+            });
+        }
+    });
+
+    // Extra celebration for passing candidates
+    {% if is_pass %}
+    setTimeout(() => {
+        launchConfetti(150);
+        launchBalloons(15);
+        showFireworks();
+    }, 500);
+    {% endif %}
+</script>
+
+<!-- Additional Styles for Print -->
+<style media="print">
+    .confetti,
+    .balloon,
+    .firework,
+    .btn-outline-primary,
+    .btn-primary,
+    .position-fixed {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .score-circle {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .question-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    body {
+        background: white !important;
+        padding: 20px !important;
+    }
+
+    .celebration-message {
+        background: #f8f9fa !important;
+        color: black !important;
+        border: 1px solid #dee2e6 !important;
+    }
+
+    .badge-custom {
+        background: #f8f9fa !important;
+        color: black !important;
+        border: 1px solid #dee2e6 !important;
+    }
+</style>
+
+{% endblock %}

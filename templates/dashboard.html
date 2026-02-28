@@ -1,0 +1,832 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+{% if role == 'admin' %}
+<!-- Admin Dashboard -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card p-4 bg-gradient-primary text-white"
+            style="background: linear-gradient(135deg, #2563eb, #7c3aed);">
+            <h4 class="fw-bold mb-1">Admin Dashboard</h4>
+            <p class="mb-0 opacity-75">Manage candidates and interview results</p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <div class="d-flex align-items-center gap-3">
+                <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                    <i class="fas fa-users fa-2x text-primary"></i>
+                </div>
+                <div>
+                    <p class="text-muted mb-0">Total Candidates</p>
+                    <h2 class="fw-bold mb-0">{{ stats.total_candidates }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card p-4">
+            <div class="d-flex align-items-center gap-3">
+                <div class="bg-success bg-opacity-10 p-3 rounded-circle">
+                    <i class="fas fa-calendar-check fa-2x text-success"></i>
+                </div>
+                <div>
+                    <p class="text-muted mb-0">Total Interviews</p>
+                    <h2 class="fw-bold mb-0">{{ stats.total_interviews }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="fw-bold mb-0">Quick Actions</h5>
+    </div>
+    <div class="d-flex gap-3">
+        <a href="{{ url_for('admin_panel') }}" class="btn btn-primary">
+            <i class="fas fa-users-cog me-2"></i>Manage Candidates
+        </a>
+        <a href="{{ url_for('export_results') }}" class="btn btn-success">
+            <i class="fas fa-download me-2"></i>Export Results
+        </a>
+    </div>
+</div>
+
+{% else %}
+<!-- Candidate Dashboard -->
+<!-- Profile Image Styles -->
+<style>
+    .profile-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid white;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .profile-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+    }
+
+    .profile-initials {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 600;
+        border: 3px solid white;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .profile-upload-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #6366f1;
+        color: white;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        border: 2px solid white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-upload-btn:hover {
+        background: #4f46e5;
+        transform: scale(1.1);
+    }
+
+    /* Profile Modal Styles */
+    .profile-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile-modal.active {
+        display: flex;
+    }
+
+    .profile-modal-content {
+        background: white;
+        border-radius: 24px;
+        padding: 2rem;
+        max-width: 700px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .profile-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-modal-header h3 {
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0;
+    }
+
+    .profile-modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #94a3b8;
+        transition: color 0.3s;
+    }
+
+    .profile-modal-close:hover {
+        color: #ef4444;
+    }
+
+    /* Cartoon/Avatar Gallery */
+    .avatar-gallery {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .avatar-item {
+        position: relative;
+        cursor: pointer;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 3px solid transparent;
+        transition: all 0.3s;
+        aspect-ratio: 1;
+    }
+
+    .avatar-item:hover {
+        transform: scale(1.05);
+    }
+
+    .avatar-item.selected {
+        border-color: #6366f1;
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+    }
+
+    .avatar-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 13px;
+    }
+
+    .avatar-item .avatar-name {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        font-size: 0.7rem;
+        padding: 0.3rem;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+    }
+
+    .save-btn {
+        background: #10b981;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 0.6rem 2.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .save-btn:hover {
+        background: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .cancel-btn {
+        background: #e2e8f0;
+        color: #64748b;
+        border: none;
+        border-radius: 30px;
+        padding: 0.6rem 2.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .cancel-btn:hover {
+        background: #cbd5e1;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .avatar-gallery {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .avatar-gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card p-4 bg-gradient-primary text-white"
+            style="background: linear-gradient(135deg, #2563eb, #7c3aed);">
+            <div class="d-flex align-items-center gap-4">
+                <!-- Profile Image Circle -->
+                <div class="profile-container">
+                    {% if session.profile_image %}
+                    <img src="{{ session.profile_image }}" alt="Profile" class="profile-image"
+                        onclick="openProfileModal()">
+                    {% else %}
+                    <div class="profile-initials" onclick="openProfileModal()">
+                        {{ session.user_name[:1]|upper }}
+                    </div>
+                    {% endif %}
+                    <div class="profile-upload-btn" onclick="openProfileModal()">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="mb-1 fw-bold">{{ session.user_name }}</h3>
+                    <p class="mb-0 opacity-75">{{ stats.total_interviews }} interviews completed • Avg Score: {{
+                        stats.avg_score }}%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-5">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <div class="d-flex align-items-center gap-3">
+                <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                </div>
+                <div>
+                    <p class="text-muted mb-0">Total Interviews</p>
+                    <h2 class="fw-bold mb-0">{{ stats.total_interviews }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card p-4">
+            <div class="d-flex align-items-center gap-3">
+                <div class="bg-success bg-opacity-10 p-3 rounded-circle">
+                    <i class="fas fa-chart-line fa-2x text-success"></i>
+                </div>
+                <div>
+                    <p class="text-muted mb-0">Average Score</p>
+                    <h2 class="fw-bold mb-0">{{ stats.avg_score }}%</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Image Modal -->
+<div class="profile-modal" id="profileModal">
+    <div class="profile-modal-content">
+        <div class="profile-modal-header">
+            <h3><i class="fas fa-smile me-2 text-primary"></i>Choose Your Cartoon Avatar</h3>
+            <button class="profile-modal-close" onclick="closeProfileModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Cartoon/Avatar Gallery - 15 Options -->
+        <h5 class="mb-3">Select a Cartoon (15 Options)</h5>
+        <div class="avatar-gallery" id="avatarGallery">
+            <!-- Cartoon 1 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon1.png')" data-avatar="cartoon1.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon1.png') }}" alt="Cartoon 1">
+                <div class="avatar-name">Cartoon 1</div>
+            </div>
+
+            <!-- Cartoon 2 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon2.png')" data-avatar="cartoon2.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon2.png') }}" alt="Cartoon 2">
+                <div class="avatar-name">Cartoon 2</div>
+            </div>
+
+            <!-- Cartoon 3 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon3.png')" data-avatar="cartoon3.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon3.png') }}" alt="Cartoon 3">
+                <div class="avatar-name">Cartoon 3</div>
+            </div>
+
+            <!-- Cartoon 4 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon4.png')" data-avatar="cartoon4.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon4.png') }}" alt="Cartoon 4">
+                <div class="avatar-name">Cartoon 4</div>
+            </div>
+
+            <!-- Cartoon 5 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon5.png')" data-avatar="cartoon5.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon5.png') }}" alt="Cartoon 5">
+                <div class="avatar-name">Cartoon 5</div>
+            </div>
+
+            <!-- Cartoon 6 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon6.png')" data-avatar="cartoon6.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon6.png') }}" alt="Cartoon 6">
+                <div class="avatar-name">Cartoon 6</div>
+            </div>
+
+            <!-- Cartoon 7 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon7.png')" data-avatar="cartoon7.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon7.png') }}" alt="Cartoon 7">
+                <div class="avatar-name">Cartoon 7</div>
+            </div>
+
+            <!-- Cartoon 8 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon8.png')" data-avatar="cartoon8.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon8.png') }}" alt="Cartoon 8">
+                <div class="avatar-name">Cartoon 8</div>
+            </div>
+
+            <!-- Cartoon 9 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon9.png')" data-avatar="cartoon9.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon9.png') }}" alt="Cartoon 9">
+                <div class="avatar-name">Cartoon 9</div>
+            </div>
+
+            <!-- Cartoon 10 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon10.png')" data-avatar="cartoon10.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon10.png') }}" alt="Cartoon 10">
+                <div class="avatar-name">Cartoon 10</div>
+            </div>
+
+            <!-- Cartoon 11 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon11.png')" data-avatar="cartoon11.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon11.png') }}" alt="Cartoon 11">
+                <div class="avatar-name">Cartoon 11</div>
+            </div>
+
+            <!-- Cartoon 12 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon12.png')" data-avatar="cartoon12.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon12.png') }}" alt="Cartoon 12">
+                <div class="avatar-name">Cartoon 12</div>
+            </div>
+
+            <!-- Cartoon 13 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon13.png')" data-avatar="cartoon13.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon13.png') }}" alt="Cartoon 13">
+                <div class="avatar-name">Cartoon 13</div>
+            </div>
+
+            <!-- Cartoon 14 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon14.png')" data-avatar="cartoon14.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon14.png') }}" alt="Cartoon 14">
+                <div class="avatar-name">Cartoon 14</div>
+            </div>
+
+            <!-- Cartoon 15 -->
+            <div class="avatar-item" onclick="selectAvatar(this, 'cartoon15.png')" data-avatar="cartoon15.png">
+                <img src="{{ url_for('static', filename='avatars/cartoon15.png') }}" alt="Cartoon 15">
+                <div class="avatar-name">Cartoon 15</div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="cancel-btn" onclick="closeProfileModal()">
+                <i class="fas fa-times me-2"></i>Cancel
+            </button>
+            <button class="save-btn" onclick="saveProfileImage()">
+                <i class="fas fa-check me-2"></i>Save
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let selectedAvatar = null;
+
+    function openProfileModal() {
+        document.getElementById('profileModal').classList.add('active');
+        // Reset selections
+        document.querySelectorAll('.avatar-item').forEach(item => {
+            item.classList.remove('selected');
+        });
+        selectedAvatar = null;
+    }
+
+    function closeProfileModal() {
+        document.getElementById('profileModal').classList.remove('active');
+    }
+
+    function selectAvatar(element, avatarFile) {
+        // Remove selected class from all avatars
+        document.querySelectorAll('.avatar-item').forEach(item => {
+            item.classList.remove('selected');
+        });
+
+        // Add selected class to clicked avatar
+        element.classList.add('selected');
+        selectedAvatar = avatarFile;
+    }
+
+    function saveProfileImage() {
+        if (!selectedAvatar) {
+            alert('Please select a cartoon avatar');
+            return;
+        }
+
+        // Get the avatar image URL
+        const avatarUrl = `/static/avatars/${selectedAvatar}`;
+
+        // Update profile image
+        updateProfileImage(avatarUrl);
+        closeProfileModal();
+    }
+
+    function updateProfileImage(imageUrl) {
+        // Create a form to send the avatar selection to server
+        const formData = new FormData();
+        formData.append('profile_avatar', selectedAvatar);
+
+        // Send to server
+        fetch('/update_profile_image', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update the profile image on the page
+                    const profileContainer = document.querySelector('.profile-container');
+
+                    // Replace the current image/initials with new image
+                    const currentContent = profileContainer.querySelector('.profile-image, .profile-initials');
+
+                    if (currentContent) {
+                        if (currentContent.classList.contains('profile-image')) {
+                            currentContent.src = imageUrl;
+                        } else {
+                            // Replace initials div with image
+                            const newImg = document.createElement('img');
+                            newImg.src = imageUrl;
+                            newImg.className = 'profile-image';
+                            newImg.alt = 'Profile';
+                            newImg.onclick = function () { openProfileModal(); };
+                            currentContent.replaceWith(newImg);
+                        }
+                    }
+
+                    // Show success message
+                    showToast('Cartoon avatar updated!', 'success');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Failed to update avatar', 'error');
+            });
+    }
+
+    // Toast notification
+    function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: ${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 10000;
+            animation: slideInRight 0.3s ease;
+            font-weight: 500;
+        `;
+        toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>${message}`;
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+
+    // Add animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Close modal when clicking outside
+    document.getElementById('profileModal').addEventListener('click', function (e) {
+        if (e.target === this) {
+            closeProfileModal();
+        }
+    });
+</script>
+
+<!-- Rest of your candidate dashboard content -->
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card p-4 text-center">
+            <div class="mb-4">
+                <i class="fas fa-cloud-upload-alt fa-4x text-primary mb-3"></i>
+                <h4 class="fw-bold mb-2">Upload Your Resume</h4>
+                <p class="text-muted">PDF format only (max 10MB). We'll analyze your skills automatically.</p>
+            </div>
+
+            <form action="{{ url_for('upload_resume') }}" method="POST" enctype="multipart/form-data" id="resumeForm">
+                <input type="file" name="resume" accept=".pdf" class="d-none" id="resumeInput"
+                    onchange="this.form.submit()">
+                <button type="button" class="btn btn-primary btn-lg px-5 py-2"
+                    onclick="document.getElementById('resumeInput').click()">
+                    <i class="fas fa-upload me-2"></i>Choose PDF File
+                </button>
+            </form>
+
+            <!-- Resume Skills Section - Only shown when skills exist -->
+            {% if candidate and candidate.skills and candidate.skills|length > 0 %}
+            <div class="mt-4 pt-4 border-top">
+                <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-success rounded-pill px-3 py-2">
+                            <i class="fas fa-check-circle me-1"></i>Resume Active
+                        </span>
+                    </div>
+
+                    <!-- Remove Resume Button -->
+                    <form action="{{ url_for('remove_resume') }}" method="POST" class="d-inline"
+                        onsubmit="return confirm('Are you sure you want to remove your resume? This will clear all detected skills.');">
+                        <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+                            <i class="fas fa-trash-alt me-1"></i>Remove Resume
+                        </button>
+                    </form>
+                </div>
+
+                <p class="fw-semibold mb-3">Detected Skills from Resume:</p>
+                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                    {% for skill in candidate.skills %}
+                    <span class="badge bg-primary bg-opacity-10 text-primary p-2 px-3 rounded-pill">
+                        <i class="fas fa-check-circle me-1"></i>{{ skill.replace('_', ' ').title() }}
+                    </span>
+                    {% endfor %}
+                </div>
+                <p class="text-success small mt-2">
+                    <i class="fas fa-info-circle me-1"></i>
+                    These skills are highlighted in the configure page (default count: 0)
+                </p>
+            </div>
+
+            {% elif candidate and candidate.interviews and candidate.interviews|length > 0 %}
+            <!-- After interview completion - show message but no skills -->
+            <div class="mt-4 pt-4 border-top">
+                <div class="alert alert-info mb-0">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="fas fa-info-circle fa-2x"></i>
+                        <div class="text-start">
+                            <strong>Interview Completed!</strong>
+                            <p class="mb-0 small">Upload your resume again to get personalized skill recommendations for
+                                your next interview.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% else %}
+            <!-- No resume and no interviews - default state -->
+            <div class="mt-4 pt-4 border-top">
+                <p class="text-muted">
+                    <i class="fas fa-info-circle me-1"></i>
+                    No resume uploaded yet. You can still start an interview and select skills manually.
+                </p>
+            </div>
+            {% endif %}
+
+            <!-- Interview Button - ALWAYS VISIBLE -->
+            <div class="mt-4">
+                <a href="{{ url_for('configure_interview') }}" class="btn btn-success btn-lg px-5 py-2">
+                    <i class="fas fa-play me-2"></i>Configure & Start Interview
+                </a>
+                <p class="text-muted small mt-2">
+                    <i class="fas fa-clock me-1"></i>
+                    Each question: 3 minutes • Customize topics and count
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Interview History Section -->
+{% if candidate and candidate.interviews and candidate.interviews|length > 0 %}
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card p-4">
+            <h5 class="fw-bold mb-4">
+                <i class="fas fa-history text-primary me-2"></i>
+                Interview History
+            </h5>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Questions</th>
+                            <th>Technical</th>
+                            <th>Communication</th>
+                            <th>Overall</th>
+                            <th>Result</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for iv in candidate.interviews|reverse %}
+                        <tr>
+                            <td class="fw-semibold">{{ iv.date[:10] }}</td>
+                            <td><span class="badge bg-light text-dark px-3 py-2">{{ iv.type }}</span></td>
+                            <td>{{ iv.questions|length }}</td>
+                            <td>
+                                <span
+                                    class="fw-semibold {% if iv.scores.technical >= 60 %}text-success{% else %}text-danger{% endif %}">
+                                    {{ iv.scores.technical }}%
+                                </span>
+                            </td>
+                            <td>
+                                <span
+                                    class="fw-semibold {% if iv.scores.communication >= 60 %}text-success{% else %}text-danger{% endif %}">
+                                    {{ iv.scores.communication }}%
+                                </span>
+                            </td>
+                            <td>
+                                <span
+                                    class="fw-bold {% if iv.scores.overall >= 60 %}text-success{% else %}text-danger{% endif %}">
+                                    {{ iv.scores.overall }}%
+                                </span>
+                            </td>
+                            <td>
+                                <span
+                                    class="badge {% if iv.result == 'selected' %}bg-success{% else %}bg-danger{% endif %} px-3 py-2 rounded-pill">
+                                    {{ iv.result }}
+                                </span>
+                            </td>
+                            <td>
+                                <a href="{{ url_for('results', interview_id=iv.id) }}"
+                                    class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                                    View Details
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endif %}
+
+<script>
+    // Auto-hide alerts after 5 seconds
+    setTimeout(function () {
+        document.querySelectorAll('.alert').forEach(function (alert) {
+            alert.style.transition = 'opacity 0.5s';
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 500);
+        });
+    }, 5000);
+
+    // Clear any session storage flags if needed
+    sessionStorage.removeItem('just_completed_interview');
+</script>
+
+<style>
+    /* Additional styles for better UX */
+    .badge.bg-success {
+        background: #10b981 !important;
+    }
+
+    .alert-info {
+        background: #e0f2fe;
+        border-left: 4px solid #0284c7;
+    }
+
+    .alert-info i {
+        color: #0284c7;
+    }
+
+    .border-top {
+        border-top: 2px solid #e2e8f0 !important;
+    }
+
+    .btn-success {
+        background: #10b981;
+        border: none;
+        transition: all 0.3s;
+    }
+
+    .btn-success:hover {
+        background: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -10px #10b981;
+    }
+
+    .btn-outline-danger {
+        border: 2px solid #ef4444;
+        color: #ef4444;
+        transition: all 0.3s;
+    }
+
+    .btn-outline-danger:hover {
+        background: #ef4444;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -10px #ef4444;
+    }
+</style>
+
+{% endblock %}

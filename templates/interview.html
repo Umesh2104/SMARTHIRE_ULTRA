@@ -1,0 +1,597 @@
+{% extends "base.html" %}
+{% block title %}Interview{% endblock %}
+{% block content %}
+
+<style>
+    .question-pill {
+        transition: all 0.2s;
+        cursor: pointer;
+        border-left: 3px solid transparent;
+    }
+
+    .question-pill:hover {
+        background: #f1f5f9 !important;
+        border-left-color: #2563eb;
+    }
+
+    .question-pill.active {
+        background: #dbeafe !important;
+        border-left-color: #2563eb;
+        font-weight: 600;
+    }
+
+    #timer {
+        transition: all 0.3s;
+        font-family: 'Courier New', monospace;
+        font-size: 1.2rem;
+    }
+
+    #timer.timer-warning {
+        background-color: #f59e0b !important;
+        animation: pulse-warning 1s infinite;
+    }
+
+    #timer.timer-danger {
+        background-color: #ef4444 !important;
+        animation: pulse-danger 1s infinite;
+    }
+
+    @keyframes pulse-warning {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.8;
+        }
+    }
+
+    @keyframes pulse-danger {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.6;
+        }
+    }
+
+    .word-count {
+        font-size: 0.85rem;
+        color: #64748b;
+    }
+
+    .word-count.good {
+        color: #10b981;
+        font-weight: 600;
+    }
+
+    .save-indicator {
+        font-size: 0.85rem;
+        color: #10b981;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .save-indicator.show {
+        opacity: 1;
+    }
+
+    .progress {
+        height: 8px;
+        border-radius: 10px;
+        background: #e2e8f0;
+    }
+
+    .progress-bar {
+        background: linear-gradient(90deg, #2563eb, #7c3aed);
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
+
+    /* Mic button styles */
+    .mic-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .mic-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .mic-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+    }
+
+    .mic-btn.recording {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        animation: pulse-recording 1.5s infinite;
+    }
+
+    @keyframes pulse-recording {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+    }
+
+    .mic-btn.recording i {
+        animation: pulse-icon 1.5s infinite;
+    }
+
+    @keyframes pulse-icon {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .mic-status {
+        font-size: 0.85rem;
+        color: #64748b;
+    }
+
+    .mic-status.recording {
+        color: #ef4444;
+        font-weight: 600;
+    }
+</style>
+
+<div class="row g-4">
+    <!-- Sidebar -->
+    <div class="col-lg-3">
+        <div class="card p-3 sticky-top" style="top: 100px;">
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="fas fa-list-check text-primary"></i>
+                <h6 class="fw-bold mb-0">Questions</h6>
+                <span class="badge bg-primary ms-auto">{{ interview.questions|length }} total</span>
+            </div>
+            <div class="d-flex flex-column gap-2" id="questionList">
+                {% for q in interview.questions %}
+                <div class="p-2 rounded question-pill d-flex align-items-center gap-2" data-index="{{ loop.index0 }}"
+                    style="background: #f8fafc;">
+                    <span class="badge bg-secondary rounded-circle"
+                        style="width: 24px; height: 24px; line-height: 24px; padding: 0;">
+                        {{ loop.index }}
+                    </span>
+                    <span class="small flex-grow-1">Question {{ loop.index }}</span>
+                    {% if q.answer %}
+                    <i class="fas fa-check-circle text-success" style="font-size: 0.8rem;"></i>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="mt-3 p-2 bg-light rounded small">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <i class="fas fa-circle text-success" style="font-size: 0.6rem;"></i>
+                    <span>Answered</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fas fa-circle text-secondary" style="font-size: 0.6rem;"></i>
+                    <span>Not answered</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Interview Area -->
+    <div class="col-lg-9">
+        <div class="card p-4">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h5 class="fw-bold mb-1">Interview in Progress</h5>
+                    <p class="text-muted small mb-0">Take your time to answer each question thoughtfully</p>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-primary px-3 py-2" id="timer">00:00</span>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="mb-4">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small fw-semibold" id="progress-text">Question 1 of {{ interview.questions|length
+                        }}</span>
+                    <span class="small text-muted" id="progress-percent">0%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Question Container -->
+            <div id="questionContainer"></div>
+
+            <!-- Navigation -->
+            <div class="d-flex justify-content-between mt-4 pt-3 border-top">
+                <button class="btn btn-outline-secondary px-4" id="prevBtn" disabled>
+                    <i class="fas fa-arrow-left me-2"></i>Previous
+                </button>
+                <button class="btn btn-primary px-4" id="nextBtn">
+                    Next <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Convert interview data
+    const interview = {{ interview| tojson }};
+    let currentIndex = 0;
+    let timeLeft = interview.questions.length * 180; // 3 min per question
+    let timerInterval;
+    let autoSaveTimer;
+
+    // Speech recognition variables
+    let recognition = null;
+    let isRecording = false;
+    let finalTranscript = '';
+
+    // Initialize speech recognition
+    function initSpeechRecognition() {
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = function () {
+                isRecording = true;
+                updateMicButtonState(true);
+            };
+
+            recognition.onend = function () {
+                isRecording = false;
+                updateMicButtonState(false);
+            };
+
+            recognition.onerror = function (event) {
+                console.error('Speech recognition error:', event.error);
+                isRecording = false;
+                updateMicButtonState(false);
+                alert('Error with voice recognition: ' + event.error);
+            };
+
+            recognition.onresult = function (event) {
+                let interimTranscript = '';
+
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const transcript = event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        finalTranscript += transcript + ' ';
+                    } else {
+                        interimTranscript += transcript;
+                    }
+                }
+
+                // Update textarea with final + interim transcript
+                const textarea = document.getElementById('answer');
+                if (textarea) {
+                    textarea.value = finalTranscript + interimTranscript;
+
+                    // Trigger input event for auto-save
+                    const inputEvent = new Event('input', { bubbles: true });
+                    textarea.dispatchEvent(inputEvent);
+                }
+            };
+        } else {
+            console.warn('Speech recognition not supported in this browser');
+        }
+    }
+
+    function toggleRecording() {
+        if (!recognition) {
+            alert('Speech recognition is not supported in your browser. Please use Chrome, Edge, or Safari.');
+            return;
+        }
+
+        if (isRecording) {
+            recognition.stop();
+        } else {
+            // Clear previous transcript for new recording
+            finalTranscript = '';
+
+            // If there's existing text, append to it
+            const textarea = document.getElementById('answer');
+            if (textarea && textarea.value.trim() !== '') {
+                finalTranscript = textarea.value + ' ';
+            }
+
+            recognition.start();
+        }
+    }
+
+    function updateMicButtonState(recording) {
+        const micBtn = document.getElementById('micBtn');
+        const micStatus = document.getElementById('micStatus');
+
+        if (micBtn && micStatus) {
+            if (recording) {
+                micBtn.classList.add('recording');
+                micBtn.innerHTML = '<i class="fas fa-microphone-alt"></i>';
+                micStatus.classList.add('recording');
+                micStatus.innerHTML = '<i class="fas fa-circle me-1" style="font-size: 0.6rem;"></i>Recording... Click to stop';
+            } else {
+                micBtn.classList.remove('recording');
+                micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                micStatus.classList.remove('recording');
+                micStatus.innerHTML = '<i class="fas fa-microphone me-1"></i>Click to start voice input';
+            }
+        }
+    }
+
+    function renderQuestion(index) {
+        const q = interview.questions[index];
+        const container = document.getElementById('questionContainer');
+        const isAnswered = q.answer && q.answer.trim() !== '';
+
+        container.innerHTML = `
+        <div class="mb-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill">
+                    Question ${index + 1} of ${interview.questions.length}
+                </span>
+                ${isAnswered ? '<span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill"><i class="fas fa-check-circle me-1"></i>Answered</span>' : ''}
+            </div>
+            
+            <h5 class="fw-semibold mb-4" style="line-height: 1.6;">${q.question}</h5>
+            
+            <div class="mb-3">
+                <textarea class="form-control" id="answer" rows="8" 
+                    placeholder="Type your answer here..." 
+                    style="border-radius: 12px; border: 2px solid #e2e8f0; padding: 1rem;">${q.answer || ''}</textarea>
+            </div>
+            
+            <div class="mic-container">
+                <button class="mic-btn" id="micBtn" onclick="toggleRecording()">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <span class="mic-status" id="micStatus">
+                    <i class="fas fa-microphone me-1"></i>Click to start voice input
+                </span>
+            </div>
+            
+            <div class="d-flex justify-content-between align-items-center mt-2">
+                <div>
+                    <span class="word-count" id="wordCount">0 words</span>
+                </div>
+                <div>
+                    <span class="save-indicator" id="saveStatus">
+                        <i class="fas fa-check-circle me-1"></i>Saved
+                    </span>
+                </div>
+            </div>
+        </div>
+    `;
+
+        updateWordCount();
+
+        // Add input listener
+        document.getElementById('answer').addEventListener('input', function () {
+            updateWordCount();
+            q.answer = this.value;
+
+            // Show save indicator
+            const saveStatus = document.getElementById('saveStatus');
+            saveStatus.classList.add('show');
+
+            // Clear previous timer
+            clearTimeout(autoSaveTimer);
+
+            // Auto-save after 1 second of no typing
+            autoSaveTimer = setTimeout(() => {
+                fetch('/save_answer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `q_index=${index}&answer=${encodeURIComponent(this.value)}`
+                }).then(() => {
+                    // Update question list indicator
+                    updateQuestionListStatus(index, true);
+                    setTimeout(() => saveStatus.classList.remove('show'), 1000);
+                });
+            }, 1000);
+        });
+
+        // Update progress
+        updateProgress(index);
+
+        // Update buttons
+        document.getElementById('prevBtn').disabled = index === 0;
+
+        const nextBtn = document.getElementById('nextBtn');
+        if (index === interview.questions.length - 1) {
+            nextBtn.innerHTML = '<i class="fas fa-check me-2"></i>Submit Interview';
+            nextBtn.classList.remove('btn-primary');
+            nextBtn.classList.add('btn-success');
+        } else {
+            nextBtn.innerHTML = 'Next Question <i class="fas fa-arrow-right ms-2"></i>';
+            nextBtn.classList.remove('btn-success');
+            nextBtn.classList.add('btn-primary');
+        }
+
+        // Update question list
+        updateQuestionListActive(index);
+
+        // Reset mic state for new question
+        if (isRecording) {
+            recognition.stop();
+        }
+        updateMicButtonState(false);
+    }
+
+    function updateWordCount() {
+        const ta = document.getElementById('answer');
+        if (!ta) return;
+        const words = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+        const wordEl = document.getElementById('wordCount');
+        wordEl.textContent = words + ' words';
+        wordEl.className = 'word-count' + (words >= 30 ? ' good' : '');
+    }
+
+    function updateProgress(index) {
+        const percent = ((index + 1) / interview.questions.length * 100);
+        document.getElementById('progressBar').style.width = percent + '%';
+        document.getElementById('progress-text').textContent = `Question ${index + 1} of ${interview.questions.length}`;
+        document.getElementById('progress-percent').textContent = Math.round(percent) + '%';
+    }
+
+    function updateQuestionListActive(index) {
+        document.querySelectorAll('.question-pill').forEach((pill, i) => {
+            if (i === index) {
+                pill.classList.add('active');
+            } else {
+                pill.classList.remove('active');
+            }
+        });
+    }
+
+    function updateQuestionListStatus(index, answered) {
+        const pill = document.querySelectorAll('.question-pill')[index];
+        const icon = pill.querySelector('i');
+        if (answered) {
+            if (!icon) {
+                pill.innerHTML += '<i class="fas fa-check-circle text-success" style="font-size: 0.8rem;"></i>';
+            }
+        } else {
+            if (icon) icon.remove();
+        }
+    }
+
+    function updateTimer() {
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        const timerEl = document.getElementById('timer');
+        timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+        // Update timer color based on time left
+        timerEl.classList.remove('timer-warning', 'timer-danger');
+        if (timeLeft <= 60) {
+            timerEl.classList.add('timer-danger');
+        } else if (timeLeft <= 180) {
+            timerEl.classList.add('timer-warning');
+        }
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            if (confirm('Time is up! Would you like to submit your interview?')) {
+                submitInterview();
+            }
+        }
+        timeLeft--;
+    }
+
+    function submitInterview() {
+        if (confirm('Are you sure you want to submit your interview? You cannot change your answers after submission.')) {
+            // Stop recording if active
+            if (isRecording && recognition) {
+                recognition.stop();
+            }
+
+            fetch('/submit_interview', { method: 'POST' })
+                .then(res => {
+                    if (res.redirected) window.location.href = res.url;
+                    else window.location.href = '/dashboard';
+                });
+        }
+    }
+
+    // Navigation
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        if (currentIndex > 0) {
+            // Stop recording if active
+            if (isRecording && recognition) {
+                recognition.stop();
+            }
+            currentIndex--;
+            renderQuestion(currentIndex);
+        }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        if (currentIndex < interview.questions.length - 1) {
+            // Stop recording if active
+            if (isRecording && recognition) {
+                recognition.stop();
+            }
+            currentIndex++;
+            renderQuestion(currentIndex);
+        } else {
+            submitInterview();
+        }
+    });
+
+    // Question list click
+    document.querySelectorAll('.question-pill').forEach((pill, index) => {
+        pill.addEventListener('click', () => {
+            if (currentIndex !== index) {
+                // Stop recording if active
+                if (isRecording && recognition) {
+                    recognition.stop();
+                }
+
+                // Save current answer before switching
+                const currentAnswer = document.getElementById('answer');
+                if (currentAnswer) {
+                    interview.questions[currentIndex].answer = currentAnswer.value;
+                }
+                currentIndex = index;
+                renderQuestion(currentIndex);
+            }
+        });
+    });
+
+    // Initialize
+    renderQuestion(0);
+    timerInterval = setInterval(updateTimer, 1000);
+
+    // Initialize speech recognition
+    initSpeechRecognition();
+
+    // Clean up on page unload
+    window.addEventListener('beforeunload', function () {
+        if (isRecording && recognition) {
+            recognition.stop();
+        }
+    });
+</script>
+
+{% endblock %}

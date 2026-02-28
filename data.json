@@ -1,0 +1,3407 @@
+{
+  "users": {
+    "d420feab-9b62-4648-9f5c-ff2a68e26d8a": {
+      "id": "d420feab-9b62-4648-9f5c-ff2a68e26d8a",
+      "name": "Rishitha MB",
+      "email": "rishithamb90@gmail.com",
+      "password_hash": "pbkdf2:sha256:600000$vKiQufJc2cKqWq0g$b1856607d9360822297ac1dbfd32d85e2e2b7c13943da08a2cd84e7347bc4058",
+      "role": "candidate",
+      "created_at": "2026-02-27T15:27:38.321768"
+    },
+    "3cc3fee7-d555-4112-b255-42c8caca9943": {
+      "id": "3cc3fee7-d555-4112-b255-42c8caca9943",
+      "name": "Rishitha MB",
+      "email": "admin@smarthire.com",
+      "password_hash": "pbkdf2:sha256:600000$4DxH4K5mxhW3GOwi$79c1961427f6d632ecfe096db64fb24f19dc2d4af5c0872de791421295b398bb",
+      "role": "candidate",
+      "created_at": "2026-02-27T16:52:07.260073"
+    },
+    "d190e06c-f846-42f3-892a-c51333bf39ef": {
+      "id": "d190e06c-f846-42f3-892a-c51333bf39ef",
+      "name": "yash",
+      "email": "yash@gmail.com",
+      "password_hash": "pbkdf2:sha256:600000$H6KKcOEgsp0DNWtu$fd1cdddbc488d63709e81377ce3ccc812f338d76699d5c36f5cc8f5c01eb885b",
+      "role": "candidate",
+      "created_at": "2026-02-28T15:46:36.790429"
+    }
+  },
+  "candidates": {
+    "d420feab-9b62-4648-9f5c-ff2a68e26d8a": {
+      "user_id": "d420feab-9b62-4648-9f5c-ff2a68e26d8a",
+      "resume_text": "",
+      "skills": [],
+      "interviews": [
+        {
+          "id": "e52234d6-7a84-4b6b-b209-2f6227fb90ab",
+          "date": "2026-02-27T15:28:14.030005",
+          "type": "configured",
+          "questions": [
+            {
+              "question": "Explain the basic structure of an HTML document.",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What is the difference between `INNER JOIN`, `LEFT JOIN`, and `RIGHT JOIN`?",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What are HTML tags and elements?",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What is the difference between functional and class components in React?",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What are components in React and what types of components exist?",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What are props in React and how do you pass data with them?",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What is the difference between HTML and HTML5?",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What is the `WHERE` clause in SQL and how is it used for filtering?",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What is the `SELECT` statement in SQL and how is it used?",
+              "answer": "",
+              "score": 0
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "71aecbbf-2eec-45ad-a4d1-bb2c5e7ab013",
+          "date": "2026-02-27T15:28:43.828958",
+          "type": "configured",
+          "questions": [
+            {
+              "question": "What is HTML and what does it stand for?",
+              "answer": "",
+              "score": 0
+            },
+            {
+              "question": "What is the `DOCTYPE` declaration and why is it important?",
+              "answer": "",
+              "score": 0
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "daf2c544-80d9-4813-9a7a-07ab3297bd0a",
+          "date": "2026-02-27T16:11:48.792544",
+          "type": "Custom",
+          "questions": [
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with ionic?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "03aa5297-ced0-4171-8cac-f979edf60cfb",
+          "date": "2026-02-27T16:25:17.937671",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with xamarin?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "c277001d-473f-4dcc-8807-0735b7822519",
+          "date": "2026-02-27T16:25:38.676362",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "What are the logical operators (`AND`, `OR`, `NOT`) in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `DELETE` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `IN` operator in SQL and when would you use it?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `DROP` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is DQL (Data Query Language) and what is its main command?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `ALTER` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `LIKE` operator in SQL and how is it used for pattern matching?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `CREATE` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is DML (Data Manipulation Language) and what commands does it include?",
+              "answer": ""
+            },
+            {
+              "question": "What is SQL and what are its main components?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "460bf567-97fa-4d94-8ac3-17373af52af5",
+          "date": "2026-02-27T16:26:27.354284",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Explain the concept of pointers in C.",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of module augmentation in TypeScript.",
+              "answer": ""
+            },
+            {
+              "question": "How does memory allocation work in C?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the use of `#define` and macros in C.",
+              "answer": ""
+            },
+            {
+              "question": "What is TypeScript and why would you use it over JavaScript?",
+              "answer": ""
+            },
+            {
+              "question": "How do generics work in TypeScript? Give an example.",
+              "answer": ""
+            },
+            {
+              "question": "What is type assertion in TypeScript?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between declaration and definition in C?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the `unknown` type in TypeScript.",
+              "answer": ""
+            },
+            {
+              "question": "What are static variables and functions in C?",
+              "answer": ""
+            },
+            {
+              "question": "What are function pointers in C and how are they used?",
+              "answer": ""
+            },
+            {
+              "question": "What are declaration files (`.d.ts`) and how do you use them?",
+              "answer": ""
+            },
+            {
+              "question": "How does recursion work in C? Give an example.",
+              "answer": ""
+            },
+            {
+              "question": "How do you configure TypeScript with `tsconfig.json`?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the difference between `interface` and `type` in TypeScript.",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `++i` and `i++` in C?",
+              "answer": ""
+            },
+            {
+              "question": "What are union and intersection types in TypeScript?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `strict` mode in TypeScript?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of dynamic memory allocation in C.",
+              "answer": ""
+            },
+            {
+              "question": "What is the preprocessor in C and what are its common uses?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "f3d279f0-00ee-408d-a47c-18e8bb2e5fb9",
+          "date": "2026-02-27T16:29:47.435560",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Explain the concept of semantic HTML and why it matters.",
+              "answer": ""
+            },
+            {
+              "question": "What are the benefits of using semantic HTML5 elements?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `<span>` tag and when should you use it?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between absolute and relative URLs in links?",
+              "answer": ""
+            },
+            {
+              "question": "List some semantic HTML5 elements and their purposes.",
+              "answer": ""
+            },
+            {
+              "question": "What is the `<img>` tag and what are its required attributes?",
+              "answer": ""
+            },
+            {
+              "question": "How do you add images to an HTML page using the `<img>` tag?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `<p>` tag used for in HTML?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between block-level and inline elements in HTML?",
+              "answer": ""
+            },
+            {
+              "question": "How do you create lists in HTML (ordered, unordered, description)?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "2b74e769-1ce4-44e9-be83-6164a5915de1",
+          "date": "2026-02-27T16:30:25.511273",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "What is the `strict` mode in TypeScript?",
+              "answer": ""
+            },
+            {
+              "question": "How does inheritance work in C#?",
+              "answer": ""
+            },
+            {
+              "question": "How do you configure TypeScript with `tsconfig.json`?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the difference between `interface` and `type` in TypeScript.",
+              "answer": ""
+            },
+            {
+              "question": "Explain method overloading and overriding in C#.",
+              "answer": ""
+            },
+            {
+              "question": "What is a structure in C and how is it different from a union?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the difference between structure and union in C.",
+              "answer": ""
+            },
+            {
+              "question": "What are command line arguments in C and how do you access them?",
+              "answer": ""
+            },
+            {
+              "question": "What are static variables and functions in C?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the use of `#define` and macros in C.",
+              "answer": ""
+            },
+            {
+              "question": "Explain the `unknown` type in TypeScript.",
+              "answer": ""
+            },
+            {
+              "question": "What are mapped types in TypeScript?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the `keyof` and `typeof` operators in TypeScript.",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of pointers in C.",
+              "answer": ""
+            },
+            {
+              "question": "How does recursion work in C? Give an example.",
+              "answer": ""
+            },
+            {
+              "question": "What are the main features of C#?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of dynamic memory allocation in C.",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `++i` and `i++` in C?",
+              "answer": ""
+            },
+            {
+              "question": "What is type assertion in TypeScript?",
+              "answer": ""
+            },
+            {
+              "question": "How do generics work in TypeScript? Give an example.",
+              "answer": ""
+            },
+            {
+              "question": "What are classes and objects in C#?",
+              "answer": ""
+            },
+            {
+              "question": "What is .NET Framework and how does it work?",
+              "answer": ""
+            },
+            {
+              "question": "What is polymorphism in C# and how is it implemented?",
+              "answer": ""
+            },
+            {
+              "question": "What is the preprocessor in C and what are its common uses?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between managed and unmanaged code in C#?",
+              "answer": ""
+            },
+            {
+              "question": "What are interfaces in C# and how are they different from abstract classes?",
+              "answer": ""
+            },
+            {
+              "question": "What are properties in C# and how do you use them?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `any` type in TypeScript and when should you avoid it?",
+              "answer": ""
+            },
+            {
+              "question": "What are union and intersection types in TypeScript?",
+              "answer": ""
+            },
+            {
+              "question": "Explain events and event handlers in C#.",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "ca7d2a8c-2178-4fa9-8562-8ba92e89cfff",
+          "date": "2026-02-27T16:30:59.446507",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with stakeholder_analysis?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "5f14a3a3-17f3-4502-bbec-db8902a53a43",
+          "date": "2026-02-27T16:31:19.992615",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "A mixture contains milk and water in the ratio 4:1. What percentage of the mixture is milk?",
+              "answer": ""
+            },
+            {
+              "question": "If A's salary is 20% less than B's salary, then B's salary is what percent more than A's salary?",
+              "answer": ""
+            },
+            {
+              "question": "A number is first increased by 20% and then decreased by 20%. Find the net percentage change.",
+              "answer": ""
+            },
+            {
+              "question": "The price of an item is reduced by 25%. What percentage increase is needed to restore it to the original price?",
+              "answer": ""
+            },
+            {
+              "question": "What is 25% of 240?",
+              "answer": ""
+            },
+            {
+              "question": "In an election, candidate A got 45% of the votes and candidate B got 55%. If total votes were 20,000, how many votes did candidate B get?",
+              "answer": ""
+            },
+            {
+              "question": "If 60% of the students in a class are boys and there are 24 girls, how many total students are there?",
+              "answer": ""
+            },
+            {
+              "question": "If a number is decreased by 15% and becomes 85, what was the original number?",
+              "answer": ""
+            },
+            {
+              "question": "What is 0.5% of 1000?",
+              "answer": ""
+            },
+            {
+              "question": "In a test, a student scored 72 marks and failed by 8 marks. If the passing percentage is 40%, what were the total marks?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "1a5ba912-753e-4fb7-8a39-08f81ce3ebf1",
+          "date": "2026-02-27T16:37:28.080403",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "What are generators and how do they differ from regular functions?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "How do you create a basic Flask application with a route?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "What is PEP 8 and why is it important?",
+              "answer": ""
+            },
+            {
+              "question": "What are the different types of SQL statements (DDL, DML, DCL, TCL)?",
+              "answer": ""
+            },
+            {
+              "question": "How do you define routes with dynamic parameters in Flask?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of pointers in C.",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What is the use of `malloc()` and `calloc()` in C?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of duck typing in Python.",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `INSERT` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between declaration and definition in C?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `alt` attribute on images and why is it important for accessibility?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `UPDATE` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "How do you create hyperlinks in HTML using the `<a>` tag?",
+              "answer": ""
+            },
+            {
+              "question": "How do you return JSON responses from a Flask route?",
+              "answer": ""
+            },
+            {
+              "question": "Explain list comprehensions with an example.",
+              "answer": ""
+            },
+            {
+              "question": "What are the main DDL commands in SQL (CREATE, ALTER, DROP)?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "How do you handle file operations in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What is template inheritance in Jinja2 and how does it work?",
+              "answer": ""
+            },
+            {
+              "question": "How do you handle file I/O in C?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `DOCTYPE` declaration and why is it important in HTML?",
+              "answer": ""
+            },
+            {
+              "question": "What are route parameters in Flask and how do you access them?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What are heading tags (`<h1>` to `<h6>`) and how are they used for SEO?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `<div>` tag and when should you use it?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "What are the comparison operators that can be used in the `WHERE` clause?",
+              "answer": ""
+            },
+            {
+              "question": "What is the use of `malloc()` and `calloc()` in C?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "5933a2df-421e-4b66-b66b-19657ec28cf8",
+          "date": "2026-02-27T16:41:20.156872",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "How does memory allocation work in C?",
+              "answer": ""
+            },
+            {
+              "question": "What wildcards can be used with the `LIKE` operator in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "How do you pass data from parent to child components using props?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of pointers in C.",
+              "answer": ""
+            },
+            {
+              "question": "What is the `<a>` tag and what are its important attributes?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between declaration and definition in C?",
+              "answer": ""
+            },
+            {
+              "question": "What is DDL (Data Definition Language) and what commands does it include?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What are the different types of SQL statements (DDL, DML, DCL, TCL)?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between HTML and HTML5?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What is a structure in C and how is it different from a union?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the basic structure of an HTML document.",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "What is HTML and what does it stand for?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `DOCTYPE` declaration and why is it important in HTML?",
+              "answer": ""
+            },
+            {
+              "question": "What is the use of `malloc()` and `calloc()` in C?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "What are the main DML commands in SQL (INSERT, UPDATE, DELETE)?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What is the component lifecycle in React and what are the main phases?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `useContext` hook in React and how does it work?",
+              "answer": ""
+            },
+            {
+              "question": "What is SQL and what are its main components?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `useState` hook in React and how do you use it?",
+              "answer": ""
+            },
+            {
+              "question": "How do lifecycle methods work in React class components?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0.0,
+            "communication": 0.0,
+            "overall": 0.0,
+            "per_question": [
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              }
+            ]
+          },
+          "result": "rejected",
+          "feedback": "\u2705 You answered 0/40 questions.\n\ud83d\udcca Overall Score: 0.0%\n\n\ud83d\udcc8 Performance Summary:\n\u2022 Technical knowledge needs improvement. Review core concepts.\n\u2022 Work on structuring answers with more clarity.\n\u2022 40 questions left unanswered.\n\n\ud83d\udcdd Detailed Feedback:\nQ1 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ2 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ3 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ4 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ5 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ6 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ7 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ8 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ9 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ10 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ11 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ12 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ13 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ14 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ15 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ16 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ17 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ18 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ19 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ20 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ21 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ22 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ23 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ24 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ25 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ26 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ27 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ28 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ29 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ30 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ31 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ32 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ33 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ34 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ35 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ36 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ37 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ38 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ39 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ40 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.",
+          "duration_seconds": 21
+        },
+        {
+          "id": "2806d439-4e9d-4395-a1b3-4e839596367b",
+          "date": "2026-02-28T13:46:38.555951",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Explain the MRO (Method Resolution Order) in Python.",
+              "answer": "MRO method resolution order in Python"
+            },
+            {
+              "question": "What is a context manager and how does `with` work?",
+              "answer": ""
+            },
+            {
+              "question": "What are Python's built-in data types?",
+              "answer": ""
+            },
+            {
+              "question": "Explain Python's GIL (Global Interpreter Lock).",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `is` and `==` in Python?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        }
+      ],
+      "asked_questions": [
+        "Explain the basic structure of an HTML document.",
+        "What is the difference between `INNER JOIN`, `LEFT JOIN`, and `RIGHT JOIN`?",
+        "What are HTML tags and elements?",
+        "What is the difference between functional and class components in React?",
+        "What are components in React and what types of components exist?",
+        "What are props in React and how do you pass data with them?",
+        "What is the difference between HTML and HTML5?",
+        "What is the `WHERE` clause in SQL and how is it used for filtering?",
+        "What is the `SELECT` statement in SQL and how is it used?",
+        "What is HTML and what does it stand for?",
+        "What is the `DOCTYPE` declaration and why is it important?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with ionic?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "Tell me about your experience with xamarin?",
+        "What are the logical operators (`AND`, `OR`, `NOT`) in SQL?",
+        "What is the `DELETE` statement used for in SQL?",
+        "What is the `IN` operator in SQL and when would you use it?",
+        "What is the `DROP` statement used for in SQL?",
+        "What is DQL (Data Query Language) and what is its main command?",
+        "What is the `ALTER` statement used for in SQL?",
+        "What is the `LIKE` operator in SQL and how is it used for pattern matching?",
+        "What is the `CREATE` statement used for in SQL?",
+        "What is DML (Data Manipulation Language) and what commands does it include?",
+        "What is SQL and what are its main components?",
+        "Explain the concept of pointers in C.",
+        "Explain the concept of module augmentation in TypeScript.",
+        "How does memory allocation work in C?",
+        "Explain the use of `#define` and macros in C.",
+        "What is TypeScript and why would you use it over JavaScript?",
+        "How do generics work in TypeScript? Give an example.",
+        "What is type assertion in TypeScript?",
+        "What is the difference between declaration and definition in C?",
+        "Explain the `unknown` type in TypeScript.",
+        "What are static variables and functions in C?",
+        "What are function pointers in C and how are they used?",
+        "What are declaration files (`.d.ts`) and how do you use them?",
+        "How does recursion work in C? Give an example.",
+        "How do you configure TypeScript with `tsconfig.json`?",
+        "Explain the difference between `interface` and `type` in TypeScript.",
+        "What is the difference between `++i` and `i++` in C?",
+        "What are union and intersection types in TypeScript?",
+        "What is the `strict` mode in TypeScript?",
+        "Explain the concept of dynamic memory allocation in C.",
+        "What is the preprocessor in C and what are its common uses?",
+        "Explain the concept of semantic HTML and why it matters.",
+        "What are the benefits of using semantic HTML5 elements?",
+        "What is the `<span>` tag and when should you use it?",
+        "What is the difference between absolute and relative URLs in links?",
+        "List some semantic HTML5 elements and their purposes.",
+        "What is the `<img>` tag and what are its required attributes?",
+        "How do you add images to an HTML page using the `<img>` tag?",
+        "What is the `<p>` tag used for in HTML?",
+        "What is the difference between block-level and inline elements in HTML?",
+        "How do you create lists in HTML (ordered, unordered, description)?",
+        "What is the `strict` mode in TypeScript?",
+        "How does inheritance work in C#?",
+        "How do you configure TypeScript with `tsconfig.json`?",
+        "Explain the difference between `interface` and `type` in TypeScript.",
+        "Explain method overloading and overriding in C#.",
+        "What is a structure in C and how is it different from a union?",
+        "Explain the difference between structure and union in C.",
+        "What are command line arguments in C and how do you access them?",
+        "What are static variables and functions in C?",
+        "Explain the use of `#define` and macros in C.",
+        "Explain the `unknown` type in TypeScript.",
+        "What are mapped types in TypeScript?",
+        "Explain the `keyof` and `typeof` operators in TypeScript.",
+        "Explain the concept of pointers in C.",
+        "How does recursion work in C? Give an example.",
+        "What are the main features of C#?",
+        "Explain the concept of dynamic memory allocation in C.",
+        "What is the difference between `++i` and `i++` in C?",
+        "What is type assertion in TypeScript?",
+        "How do generics work in TypeScript? Give an example.",
+        "What are classes and objects in C#?",
+        "What is .NET Framework and how does it work?",
+        "What is polymorphism in C# and how is it implemented?",
+        "What is the preprocessor in C and what are its common uses?",
+        "What is the difference between managed and unmanaged code in C#?",
+        "What are interfaces in C# and how are they different from abstract classes?",
+        "What are properties in C# and how do you use them?",
+        "What is the `any` type in TypeScript and when should you avoid it?",
+        "What are union and intersection types in TypeScript?",
+        "Explain events and event handlers in C#.",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "Tell me about your experience with stakeholder_analysis?",
+        "A mixture contains milk and water in the ratio 4:1. What percentage of the mixture is milk?",
+        "If A's salary is 20% less than B's salary, then B's salary is what percent more than A's salary?",
+        "A number is first increased by 20% and then decreased by 20%. Find the net percentage change.",
+        "The price of an item is reduced by 25%. What percentage increase is needed to restore it to the original price?",
+        "What is 25% of 240?",
+        "In an election, candidate A got 45% of the votes and candidate B got 55%. If total votes were 20,000, how many votes did candidate B get?",
+        "If 60% of the students in a class are boys and there are 24 girls, how many total students are there?",
+        "If a number is decreased by 15% and becomes 85, what was the original number?",
+        "What is 0.5% of 1000?",
+        "In a test, a student scored 72 marks and failed by 8 marks. If the passing percentage is 40%, what were the total marks?",
+        "What are generators and how do they differ from regular functions?",
+        "Tell me about your experience with github?",
+        "How do you create a basic Flask application with a route?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with github?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with github?",
+        "What is PEP 8 and why is it important?",
+        "What are the different types of SQL statements (DDL, DML, DCL, TCL)?",
+        "How do you define routes with dynamic parameters in Flask?",
+        "Explain the concept of pointers in C.",
+        "Tell me about your experience with machine_learning?",
+        "What is the use of `malloc()` and `calloc()` in C?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with machine_learning?",
+        "Explain the concept of duck typing in Python.",
+        "Tell me about your experience with github?",
+        "What is the `INSERT` statement used for in SQL?",
+        "What is the difference between declaration and definition in C?",
+        "What is the `alt` attribute on images and why is it important for accessibility?",
+        "What is the `UPDATE` statement used for in SQL?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with machine_learning?",
+        "How do you create hyperlinks in HTML using the `<a>` tag?",
+        "How do you return JSON responses from a Flask route?",
+        "Explain list comprehensions with an example.",
+        "What are the main DDL commands in SQL (CREATE, ALTER, DROP)?",
+        "Tell me about your experience with git?",
+        "How do you handle file operations in Python?",
+        "What is template inheritance in Jinja2 and how does it work?",
+        "How do you handle file I/O in C?",
+        "What is the `DOCTYPE` declaration and why is it important in HTML?",
+        "What are route parameters in Flask and how do you access them?",
+        "Tell me about your experience with machine_learning?",
+        "What are heading tags (`<h1>` to `<h6>`) and how are they used for SEO?",
+        "What is the `<div>` tag and when should you use it?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "What are the comparison operators that can be used in the `WHERE` clause?",
+        "What is the use of `malloc()` and `calloc()` in C?",
+        "Tell me about your experience with github?",
+        "Tell me about your experience with machine_learning?",
+        "How does memory allocation work in C?",
+        "What wildcards can be used with the `LIKE` operator in SQL?",
+        "Tell me about your experience with machine_learning?",
+        "How do you pass data from parent to child components using props?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with github?",
+        "Explain the concept of pointers in C.",
+        "What is the `<a>` tag and what are its important attributes?",
+        "What is the difference between declaration and definition in C?",
+        "What is DDL (Data Definition Language) and what commands does it include?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with machine_learning?",
+        "What are the different types of SQL statements (DDL, DML, DCL, TCL)?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with machine_learning?",
+        "What is the difference between HTML and HTML5?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with github?",
+        "Tell me about your experience with machine_learning?",
+        "What is a structure in C and how is it different from a union?",
+        "Explain the basic structure of an HTML document.",
+        "Tell me about your experience with github?",
+        "What is HTML and what does it stand for?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with github?",
+        "What is the `DOCTYPE` declaration and why is it important in HTML?",
+        "What is the use of `malloc()` and `calloc()` in C?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with github?",
+        "What are the main DML commands in SQL (INSERT, UPDATE, DELETE)?",
+        "Tell me about your experience with machine_learning?",
+        "What is the component lifecycle in React and what are the main phases?",
+        "Tell me about your experience with machine_learning?",
+        "What is the `useContext` hook in React and how does it work?",
+        "What is SQL and what are its main components?",
+        "What is the `useState` hook in React and how do you use it?",
+        "How do lifecycle methods work in React class components?",
+        "Explain the MRO (Method Resolution Order) in Python.",
+        "What is a context manager and how does `with` work?",
+        "What are Python's built-in data types?",
+        "Explain Python's GIL (Global Interpreter Lock).",
+        "What is the difference between `is` and `==` in Python?"
+      ]
+    },
+    "3cc3fee7-d555-4112-b255-42c8caca9943": {
+      "user_id": "3cc3fee7-d555-4112-b255-42c8caca9943",
+      "resume_text": "",
+      "skills": [],
+      "interviews": [
+        {
+          "id": "57041012-46bb-4a3e-9cc6-9885ed3b7f24",
+          "date": "2026-02-27T16:53:44.027762",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Explain the concept of duck typing in Python.",
+              "answer": ""
+            },
+            {
+              "question": "What are metaclasses in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What is a context manager and how does `with` work?",
+              "answer": ""
+            },
+            {
+              "question": "Explain how Python's garbage collection works.",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `deepcopy` and `copy` in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `@staticmethod` and `@classmethod`?",
+              "answer": ""
+            },
+            {
+              "question": "What are generators and how do they differ from regular functions?",
+              "answer": ""
+            },
+            {
+              "question": "What are Python's built-in data types?",
+              "answer": ""
+            },
+            {
+              "question": "How do you handle file operations in Python?",
+              "answer": ""
+            },
+            {
+              "question": "Explain how `map()`, `filter()`, and `reduce()` work.",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0.0,
+            "communication": 0.0,
+            "overall": 0.0,
+            "per_question": [
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              }
+            ]
+          },
+          "result": "rejected",
+          "feedback": "\u2705 You answered 0/10 questions.\n\ud83d\udcca Overall Score: 0.0%\n\n\ud83d\udcc8 Performance Summary:\n\u2022 Technical knowledge needs improvement. Review core concepts.\n\u2022 Work on structuring answers with more clarity.\n\u2022 10 questions left unanswered.\n\n\ud83d\udcdd Detailed Feedback:\nQ1 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ2 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ3 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ4 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ5 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ6 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ7 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ8 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ9 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ10 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.",
+          "duration_seconds": 11
+        },
+        {
+          "id": "f01e8735-326e-4fff-a367-8e0b1d7a6226",
+          "date": "2026-02-27T18:35:52.759765",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `LIKE` operator in SQL and how is it used for pattern matching?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `is` and `==` in Python?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `INSERT` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "How does recursion work in C? Give an example.",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "What are route parameters in Flask and how do you access them?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between Flask and Django framework?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the difference between structure and union in C.",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the MRO (Method Resolution Order) in Python.",
+              "answer": ""
+            },
+            {
+              "question": "Explain list comprehensions with an example.",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between declaration and definition in C?",
+              "answer": ""
+            },
+            {
+              "question": "What are decorators in Python? Give an example.",
+              "answer": ""
+            },
+            {
+              "question": "What is the `SELECT` statement in SQL and how is it used?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `WHERE` clause in SQL and how is it used for filtering?",
+              "answer": ""
+            },
+            {
+              "question": "How do you use Jinja2 templates in Flask for dynamic content?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the use of `#define` and macros in C.",
+              "answer": ""
+            },
+            {
+              "question": "How do you define routes with dynamic parameters in Flask?",
+              "answer": ""
+            },
+            {
+              "question": "How do you access GET and POST data from requests in Flask?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Explain Python's GIL (Global Interpreter Lock).",
+              "answer": ""
+            },
+            {
+              "question": "What are the comparison operators that can be used in the `WHERE` clause?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "What are function pointers in C and how are they used?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0.0,
+            "communication": 0.0,
+            "overall": 0.0,
+            "per_question": [
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              }
+            ]
+          },
+          "result": "rejected",
+          "feedback": "\u2705 You answered 0/35 questions.\n\ud83d\udcca Overall Score: 0.0%\n\n\ud83d\udcc8 Performance Summary:\n\u2022 Technical knowledge needs improvement. Review core concepts.\n\u2022 Work on structuring answers with more clarity.\n\u2022 35 questions left unanswered.\n\n\ud83d\udcdd Detailed Feedback:\nQ1 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ2 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ3 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ4 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ5 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ6 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ7 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ8 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ9 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ10 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ11 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ12 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ13 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ14 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ15 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ16 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ17 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ18 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ19 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ20 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ21 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ22 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ23 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ24 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ25 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ26 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ27 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ28 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ29 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ30 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ31 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ32 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ33 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ34 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ35 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.",
+          "duration_seconds": 39
+        },
+        {
+          "id": "1f2fa56f-b3c8-418c-909a-474d58a9748c",
+          "date": "2026-02-27T18:37:33.769975",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "What is `*args` and `**kwargs` in Python?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "How does exception handling work in Python?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "What are lambda functions? When would you use them?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What is DQL (Data Query Language) and what is its main command?",
+              "answer": ""
+            },
+            {
+              "question": "What is the use of `malloc()` and `calloc()` in C?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of pointers in C.",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `alt` attribute on images and why is it important for accessibility?",
+              "answer": ""
+            },
+            {
+              "question": "What wildcards can be used with the `LIKE` operator in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What are the logical operators (`AND`, `OR`, `NOT`) in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `app.route` decorator in Flask and how is it used?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `request` object in Flask and what information does it provide?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between a list and a tuple in Python?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `<span>` tag and when should you use it?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "What are the benefits of using semantic HTML5 elements?",
+              "answer": ""
+            },
+            {
+              "question": "What are the main DML commands in SQL (INSERT, UPDATE, DELETE)?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of semantic HTML and why it matters.",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of dynamic memory allocation in C.",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with github?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the basic structure of an HTML document.",
+              "answer": ""
+            },
+            {
+              "question": "How do you return JSON responses from a Flask route?",
+              "answer": ""
+            },
+            {
+              "question": "What is DDL (Data Definition Language) and what commands does it include?",
+              "answer": ""
+            },
+            {
+              "question": "How do you create a basic Flask application with a route?",
+              "answer": ""
+            },
+            {
+              "question": "How does memory allocation work in C?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with machine_learning?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "What is PEP 8 and why is it important?",
+              "answer": ""
+            },
+            {
+              "question": "What is a structure in C and how is it different from a union?",
+              "answer": ""
+            },
+            {
+              "question": "What is Flask and what are its main features?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0.0,
+            "communication": 0.0,
+            "overall": 0.0,
+            "per_question": [
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              }
+            ]
+          },
+          "result": "rejected",
+          "feedback": "\u2705 You answered 0/40 questions.\n\ud83d\udcca Overall Score: 0.0%\n\n\ud83d\udcc8 Performance Summary:\n\u2022 Technical knowledge needs improvement. Review core concepts.\n\u2022 Work on structuring answers with more clarity.\n\u2022 40 questions left unanswered.\n\n\ud83d\udcdd Detailed Feedback:\nQ1 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ2 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ3 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ4 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ5 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ6 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ7 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ8 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ9 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ10 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ11 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ12 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ13 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ14 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ15 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ16 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ17 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ18 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ19 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ20 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ21 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ22 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ23 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ24 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ25 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ26 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ27 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ28 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ29 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ30 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ31 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ32 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ33 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ34 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ35 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ36 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ37 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ38 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ39 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ40 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.",
+          "duration_seconds": 19
+        },
+        {
+          "id": "8825c2bd-c03c-451b-8dd6-852a1a76bcbd",
+          "date": "2026-02-27T19:05:31.699149",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Explain the concept of duck typing in Python.",
+              "answer": ""
+            },
+            {
+              "question": "Explain how Python's garbage collection works.",
+              "answer": ""
+            },
+            {
+              "question": "Explain how `map()`, `filter()`, and `reduce()` work.",
+              "answer": ""
+            },
+            {
+              "question": "What are decorators in Python? Give an example.",
+              "answer": ""
+            },
+            {
+              "question": "Explain list comprehensions with an example.",
+              "answer": ""
+            },
+            {
+              "question": "How does exception handling work in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `deepcopy` and `copy` in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What are generators and how do they differ from regular functions?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between a list and a tuple in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What is `*args` and `**kwargs` in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `is` and `==` in Python?",
+              "answer": ""
+            },
+            {
+              "question": "Explain Python's GIL (Global Interpreter Lock).",
+              "answer": ""
+            },
+            {
+              "question": "What is a context manager and how does `with` work?",
+              "answer": ""
+            },
+            {
+              "question": "What are lambda functions? When would you use them?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `@staticmethod` and `@classmethod`?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "062dc27d-d3f6-4658-9d39-2d8ffafd38e1",
+          "date": "2026-02-27T19:09:10.190903",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about your experience with git?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        },
+        {
+          "id": "ed9fd2a5-9133-43a0-b29f-bacb37a20251",
+          "date": "2026-02-28T13:45:15.665349",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "What is the difference between `@staticmethod` and `@classmethod`?",
+              "answer": ""
+            },
+            {
+              "question": "Explain how Python's garbage collection works.",
+              "answer": ""
+            },
+            {
+              "question": "What are lambda functions? When would you use them?",
+              "answer": ""
+            },
+            {
+              "question": "Explain list comprehensions with an example.",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between a list and a tuple in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What are generators and how do they differ from regular functions?",
+              "answer": ""
+            },
+            {
+              "question": "How does exception handling work in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What are decorators in Python? Give an example.",
+              "answer": ""
+            },
+            {
+              "question": "Explain Python's GIL (Global Interpreter Lock).",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `deepcopy` and `copy` in Python?",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0,
+            "communication": 0,
+            "overall": 0
+          },
+          "result": "pending",
+          "feedback": "",
+          "duration_seconds": 0
+        }
+      ],
+      "asked_questions": [
+        "Explain the concept of duck typing in Python.",
+        "What are metaclasses in Python?",
+        "What is a context manager and how does `with` work?",
+        "Explain how Python's garbage collection works.",
+        "What is the difference between `deepcopy` and `copy` in Python?",
+        "What is the difference between `@staticmethod` and `@classmethod`?",
+        "What are generators and how do they differ from regular functions?",
+        "What are Python's built-in data types?",
+        "How do you handle file operations in Python?",
+        "Explain how `map()`, `filter()`, and `reduce()` work.",
+        "Tell me about your experience with git?",
+        "What is the `LIKE` operator in SQL and how is it used for pattern matching?",
+        "Tell me about your experience with github?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with github?",
+        "What is the difference between `is` and `==` in Python?",
+        "Tell me about your experience with machine_learning?",
+        "What is the `INSERT` statement used for in SQL?",
+        "How does recursion work in C? Give an example.",
+        "Tell me about your experience with git?",
+        "What are route parameters in Flask and how do you access them?",
+        "What is the difference between Flask and Django framework?",
+        "Tell me about your experience with machine_learning?",
+        "Explain the difference between structure and union in C.",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "Explain the MRO (Method Resolution Order) in Python.",
+        "Explain list comprehensions with an example.",
+        "What is the difference between declaration and definition in C?",
+        "What are decorators in Python? Give an example.",
+        "What is the `SELECT` statement in SQL and how is it used?",
+        "What is the `WHERE` clause in SQL and how is it used for filtering?",
+        "How do you use Jinja2 templates in Flask for dynamic content?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with github?",
+        "Explain the use of `#define` and macros in C.",
+        "How do you define routes with dynamic parameters in Flask?",
+        "How do you access GET and POST data from requests in Flask?",
+        "Tell me about your experience with github?",
+        "Explain Python's GIL (Global Interpreter Lock).",
+        "What are the comparison operators that can be used in the `WHERE` clause?",
+        "Tell me about your experience with github?",
+        "What are function pointers in C and how are they used?",
+        "What is `*args` and `**kwargs` in Python?",
+        "Tell me about your experience with github?",
+        "How does exception handling work in Python?",
+        "Tell me about your experience with git?",
+        "What are lambda functions? When would you use them?",
+        "Tell me about your experience with machine_learning?",
+        "What is DQL (Data Query Language) and what is its main command?",
+        "What is the use of `malloc()` and `calloc()` in C?",
+        "Tell me about your experience with machine_learning?",
+        "Explain the concept of pointers in C.",
+        "Tell me about your experience with machine_learning?",
+        "What is the `alt` attribute on images and why is it important for accessibility?",
+        "What wildcards can be used with the `LIKE` operator in SQL?",
+        "What are the logical operators (`AND`, `OR`, `NOT`) in SQL?",
+        "What is the `app.route` decorator in Flask and how is it used?",
+        "What is the `request` object in Flask and what information does it provide?",
+        "What is the difference between a list and a tuple in Python?",
+        "Tell me about your experience with github?",
+        "What is the `<span>` tag and when should you use it?",
+        "Tell me about your experience with github?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "What are the benefits of using semantic HTML5 elements?",
+        "What are the main DML commands in SQL (INSERT, UPDATE, DELETE)?",
+        "Explain the concept of semantic HTML and why it matters.",
+        "Explain the concept of dynamic memory allocation in C.",
+        "Tell me about your experience with github?",
+        "Tell me about your experience with github?",
+        "Explain the basic structure of an HTML document.",
+        "How do you return JSON responses from a Flask route?",
+        "What is DDL (Data Definition Language) and what commands does it include?",
+        "How do you create a basic Flask application with a route?",
+        "How does memory allocation work in C?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with machine_learning?",
+        "Tell me about your experience with git?",
+        "What is PEP 8 and why is it important?",
+        "What is a structure in C and how is it different from a union?",
+        "What is Flask and what are its main features?",
+        "Explain the concept of duck typing in Python.",
+        "Explain how Python's garbage collection works.",
+        "Explain how `map()`, `filter()`, and `reduce()` work.",
+        "What are decorators in Python? Give an example.",
+        "Explain list comprehensions with an example.",
+        "How does exception handling work in Python?",
+        "What is the difference between `deepcopy` and `copy` in Python?",
+        "What are generators and how do they differ from regular functions?",
+        "What is the difference between a list and a tuple in Python?",
+        "What is `*args` and `**kwargs` in Python?",
+        "What is the difference between `is` and `==` in Python?",
+        "Explain Python's GIL (Global Interpreter Lock).",
+        "What is a context manager and how does `with` work?",
+        "What are lambda functions? When would you use them?",
+        "What is the difference between `@staticmethod` and `@classmethod`?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "Tell me about your experience with git?",
+        "What is the difference between `@staticmethod` and `@classmethod`?",
+        "Explain how Python's garbage collection works.",
+        "What are lambda functions? When would you use them?",
+        "Explain list comprehensions with an example.",
+        "What is the difference between a list and a tuple in Python?",
+        "What are generators and how do they differ from regular functions?",
+        "How does exception handling work in Python?",
+        "What are decorators in Python? Give an example.",
+        "Explain Python's GIL (Global Interpreter Lock).",
+        "What is the difference between `deepcopy` and `copy` in Python?"
+      ],
+      "skills_categorized": {
+        "technical": [
+          "github"
+        ],
+        "management": [],
+        "aptitude": [],
+        "softskills": [
+          "drive",
+          "support"
+        ],
+        "all": [
+          "github",
+          "drive",
+          "support"
+        ]
+      },
+      "profile_image": "/static/avatars/cartoon7.png"
+    },
+    "d190e06c-f846-42f3-892a-c51333bf39ef": {
+      "user_id": "d190e06c-f846-42f3-892a-c51333bf39ef",
+      "resume_text": "contact\nsoft skills\nlanguages\nprofile\n+91 7671012257phone:\nvulapu.umeshchandra@gmail.co\nmemail address:\ngidalur, andhra pradeshaddress:\ntech skills\nhttps://www.linkedin.com/in/umes\nh-chandra-a33353327website\nteamwork\ntime management\nleadership\ncommunication\ncritical thinking\nproblem solving \npresentation skills\nenglish \ntelugu\nkannada (intermediate)\nhindi (basics)vulapu um esh chandra\nbca student | aspiring java developer\neducationcreative and detail-oriented bca 3 year student passionate to obtain an\nentry-level position as a java developer where i can apply my knowledge of\ncore java, object-oriented programming, and data structures and\ncontribute to the organization\u2019s growth. eager to learn and develop real-\nworld projects within the company, while continuously enhancing my\ntechnical expertise and problem-solving skills.rd\n2023 - 2026 bachelor of computer application\nnagarjuna college of management studies \n2019 - 2021 aditya junior college\npu\np e r c e n t a g e :c p a : 9.61/ 10.0\njava (expert)\npython (intermediate)\nc(intermediate)\ndata structures\nalgorithms\nsql, mysql\nhtml , css & javascript\n(basics)learning & training\ncurrently learning on dsa fundamentals\nachievements & hackathons\nsecured 1 place with team in internal hackathon conducted nagarjuna\ncollege of management studies.st\nwon first prize twice in quiz which are held at intercollege fest at sjcit\nand onesb college.\npublished an article titled \u201cfeminist theory and activism: a path towards\nequality\u201d in \u201cbhasha sam",
+      "skills": [
+        "leadership",
+        "time_management",
+        "problem_solving",
+        "communication",
+        "c",
+        "python",
+        "javascript",
+        "spring",
+        "sql",
+        "training",
+        "teamwork",
+        "html",
+        "critical_thinking",
+        "r",
+        "mysql",
+        "css",
+        "java"
+      ],
+      "interviews": [
+        {
+          "id": "ea123419-0ca4-465d-b48d-be3c897084a4",
+          "date": "2026-02-28T15:47:25.484926",
+          "type": "Custom Interview",
+          "questions": [
+            {
+              "question": "How do you evaluate which creative ideas are worth pursuing?",
+              "answer": ""
+            },
+            {
+              "question": "What is `JSON.parse()` and `JSON.stringify()`?",
+              "answer": ""
+            },
+            {
+              "question": "How do you adapt your communication style when talking to different audiences (technical vs. non-technical, junior vs. senior)?",
+              "answer": ""
+            },
+            {
+              "question": "How do you add images to an HTML page using the `<img>` tag?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `==` and `.equals()` in Java?",
+              "answer": ""
+            },
+            {
+              "question": "How do you handle disagreements or conflicts within your team?",
+              "answer": ""
+            },
+            {
+              "question": "What are the comparison operators that can be used in the `WHERE` clause?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `@staticmethod` and `@classmethod`?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `AUTO_INCREMENT` attribute in MySQL and how is it used?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the difference between structure and union in C.",
+              "answer": ""
+            },
+            {
+              "question": "What is the `INSERT` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "How do you create hyperlinks in HTML using the `<a>` tag?",
+              "answer": ""
+            },
+            {
+              "question": "What are the main MySQL data types (numeric, string, date/time)?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `CHAR` and `VARCHAR` data types in MySQL?",
+              "answer": ""
+            },
+            {
+              "question": "How do you generate new ideas when you're feeling stuck or uninspired?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between JDK, JRE, and JVM?",
+              "answer": ""
+            },
+            {
+              "question": "What is a foreign key in MySQL and how is it used to maintain referential integrity?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of dependency injection in Java.",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between HTML and HTML5?",
+              "answer": ""
+            },
+            {
+              "question": "How does exception handling work in Python?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `IN` operator in SQL and when would you use it?",
+              "answer": ""
+            },
+            {
+              "question": "Describe a time when you had to present information to senior leadership or executives.",
+              "answer": ""
+            },
+            {
+              "question": "What is Java Stream API? Give a use case.",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `margin` and `padding` in CSS?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about a time when you combined ideas from different fields to create something new.",
+              "answer": ""
+            },
+            {
+              "question": "How do you balance being authoritative versus being approachable as a leader?",
+              "answer": ""
+            },
+            {
+              "question": "What are the numeric data types available in MySQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is destructuring in ES6?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `DROP` statement used for in SQL?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `@SpringBootApplication` annotation and what does it include?",
+              "answer": ""
+            },
+            {
+              "question": "Describe a time when you had to be creative with limited resources or budget.",
+              "answer": ""
+            },
+            {
+              "question": "What is Spring Boot and how is it different from the core Spring Framework?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of dynamic memory allocation in C.",
+              "answer": ""
+            },
+            {
+              "question": "What is dependency injection in Spring and how does it work?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between a list and a tuple in Python?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of pointers in C.",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about a time you had to lead a diverse team with different backgrounds.",
+              "answer": ""
+            },
+            {
+              "question": "How do you handle a situation where your team is under significant pressure or stress?",
+              "answer": ""
+            },
+            {
+              "question": "What are static variables and functions in C?",
+              "answer": ""
+            },
+            {
+              "question": "How do you create lists in HTML (ordered, unordered, description)?",
+              "answer": ""
+            },
+            {
+              "question": "What are class selectors in CSS and how are they used?",
+              "answer": ""
+            },
+            {
+              "question": "Tell me about a time when you had to persuade someone to see things from your perspective or adopt your idea.",
+              "answer": ""
+            },
+            {
+              "question": "How do you provide constructive feedback to your team members?",
+              "answer": ""
+            },
+            {
+              "question": "What do you do when you disagree with a team decision that has been made?",
+              "answer": ""
+            },
+            {
+              "question": "How do you contribute to creating a positive and inclusive team environment?",
+              "answer": ""
+            },
+            {
+              "question": "What is prototypal inheritance in JavaScript?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between `::before` and `::after` pseudo-elements?",
+              "answer": ""
+            },
+            {
+              "question": "What are Spring Boot starters and give examples of common starters?",
+              "answer": ""
+            },
+            {
+              "question": "What is the difference between class selectors and ID selectors in CSS?",
+              "answer": ""
+            },
+            {
+              "question": "Describe a time when you had to coordinate with multiple teams to complete a complex project.",
+              "answer": ""
+            },
+            {
+              "question": "What is the universal selector (`*`) in CSS and when would you use it?",
+              "answer": ""
+            },
+            {
+              "question": "Explain the concept of `this` in JavaScript.",
+              "answer": ""
+            },
+            {
+              "question": "What do you do when a team member disagrees with your decision?",
+              "answer": ""
+            },
+            {
+              "question": "What is a pure function in JavaScript?",
+              "answer": ""
+            },
+            {
+              "question": "What are Python's built-in data types?",
+              "answer": ""
+            },
+            {
+              "question": "What is the `<div>` tag and when should you use it?",
+              "answer": ""
+            },
+            {
+              "question": "Explain how Python's garbage collection works.",
+              "answer": ""
+            },
+            {
+              "question": "What are function pointers in C and how are they used?",
+              "answer": ""
+            },
+            {
+              "question": "What are the main DDL commands in SQL (CREATE, ALTER, DROP)?",
+              "answer": ""
+            },
+            {
+              "question": "How does garbage collection work in Java?",
+              "answer": ""
+            },
+            {
+              "question": "What is the DispatcherServlet in Spring MVC and what is its role?",
+              "answer": ""
+            },
+            {
+              "question": "How do you ensure that everyone's voice is heard in team meetings and discussions?",
+              "answer": ""
+            },
+            {
+              "question": "Describe a time you had to inspire your team to go above and beyond.",
+              "answer": ""
+            },
+            {
+              "question": "Describe a time when you had to communicate a complex technical concept to a non-technical audience.",
+              "answer": ""
+            },
+            {
+              "question": "Describe a time when you came up with a creative solution to a work-related challenge.",
+              "answer": ""
+            }
+          ],
+          "scores": {
+            "technical": 0.0,
+            "communication": 0.0,
+            "overall": 0.0,
+            "per_question": [
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              },
+              {
+                "technical_score": 0,
+                "communication_score": 0,
+                "feedback": "\u274c No answer provided. Always attempt every question."
+              }
+            ]
+          },
+          "result": "rejected",
+          "feedback": "\u2705 You answered 0/65 questions.\n\ud83d\udcca Overall Score: 0.0%\n\n\ud83d\udcc8 Performance Summary:\n\u2022 Technical knowledge needs improvement. Review core concepts.\n\u2022 Work on structuring answers with more clarity.\n\u2022 65 questions left unanswered.\n\n\ud83d\udcdd Detailed Feedback:\nQ1 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ2 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ3 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ4 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ5 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ6 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ7 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ8 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ9 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ10 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ11 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ12 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ13 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ14 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ15 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ16 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ17 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ18 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ19 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ20 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ21 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ22 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ23 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ24 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ25 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ26 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ27 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ28 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ29 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ30 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ31 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ32 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ33 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ34 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ35 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ36 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ37 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ38 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ39 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ40 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ41 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ42 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ43 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ44 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ45 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ46 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ47 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ48 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ49 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ50 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ51 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ52 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ53 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ54 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ55 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ56 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ57 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ58 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ59 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ60 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ61 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ62 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ63 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ64 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.\nQ65 \u2717 [Tech: 0% | Comm: 0%]: \u274c No answer provided. Always attempt every question.",
+          "duration_seconds": 25
+        }
+      ],
+      "asked_questions": [
+        "How do you evaluate which creative ideas are worth pursuing?",
+        "What is `JSON.parse()` and `JSON.stringify()`?",
+        "How do you adapt your communication style when talking to different audiences (technical vs. non-technical, junior vs. senior)?",
+        "How do you add images to an HTML page using the `<img>` tag?",
+        "What is the difference between `==` and `.equals()` in Java?",
+        "How do you handle disagreements or conflicts within your team?",
+        "What are the comparison operators that can be used in the `WHERE` clause?",
+        "What is the difference between `@staticmethod` and `@classmethod`?",
+        "What is the `AUTO_INCREMENT` attribute in MySQL and how is it used?",
+        "Explain the difference between structure and union in C.",
+        "What is the `INSERT` statement used for in SQL?",
+        "How do you create hyperlinks in HTML using the `<a>` tag?",
+        "What are the main MySQL data types (numeric, string, date/time)?",
+        "What is the difference between `CHAR` and `VARCHAR` data types in MySQL?",
+        "How do you generate new ideas when you're feeling stuck or uninspired?",
+        "What is the difference between JDK, JRE, and JVM?",
+        "What is a foreign key in MySQL and how is it used to maintain referential integrity?",
+        "Explain the concept of dependency injection in Java.",
+        "What is the difference between HTML and HTML5?",
+        "How does exception handling work in Python?",
+        "What is the `IN` operator in SQL and when would you use it?",
+        "Describe a time when you had to present information to senior leadership or executives.",
+        "What is Java Stream API? Give a use case.",
+        "What is the difference between `margin` and `padding` in CSS?",
+        "Tell me about a time when you combined ideas from different fields to create something new.",
+        "How do you balance being authoritative versus being approachable as a leader?",
+        "What are the numeric data types available in MySQL?",
+        "What is destructuring in ES6?",
+        "What is the `DROP` statement used for in SQL?",
+        "What is the `@SpringBootApplication` annotation and what does it include?",
+        "Describe a time when you had to be creative with limited resources or budget.",
+        "What is Spring Boot and how is it different from the core Spring Framework?",
+        "Explain the concept of dynamic memory allocation in C.",
+        "What is dependency injection in Spring and how does it work?",
+        "What is the difference between a list and a tuple in Python?",
+        "Explain the concept of pointers in C.",
+        "Tell me about a time you had to lead a diverse team with different backgrounds.",
+        "How do you handle a situation where your team is under significant pressure or stress?",
+        "What are static variables and functions in C?",
+        "How do you create lists in HTML (ordered, unordered, description)?",
+        "What are class selectors in CSS and how are they used?",
+        "Tell me about a time when you had to persuade someone to see things from your perspective or adopt your idea.",
+        "How do you provide constructive feedback to your team members?",
+        "What do you do when you disagree with a team decision that has been made?",
+        "How do you contribute to creating a positive and inclusive team environment?",
+        "What is prototypal inheritance in JavaScript?",
+        "What is the difference between `::before` and `::after` pseudo-elements?",
+        "What are Spring Boot starters and give examples of common starters?",
+        "What is the difference between class selectors and ID selectors in CSS?",
+        "Describe a time when you had to coordinate with multiple teams to complete a complex project.",
+        "What is the universal selector (`*`) in CSS and when would you use it?",
+        "Explain the concept of `this` in JavaScript.",
+        "What do you do when a team member disagrees with your decision?",
+        "What is a pure function in JavaScript?",
+        "What are Python's built-in data types?",
+        "What is the `<div>` tag and when should you use it?",
+        "Explain how Python's garbage collection works.",
+        "What are function pointers in C and how are they used?",
+        "What are the main DDL commands in SQL (CREATE, ALTER, DROP)?",
+        "How does garbage collection work in Java?",
+        "What is the DispatcherServlet in Spring MVC and what is its role?",
+        "How do you ensure that everyone's voice is heard in team meetings and discussions?",
+        "Describe a time you had to inspire your team to go above and beyond.",
+        "Describe a time when you had to communicate a complex technical concept to a non-technical audience.",
+        "Describe a time when you came up with a creative solution to a work-related challenge."
+      ],
+      "skills_categorized": {
+        "technical": [
+          "python",
+          "java",
+          "javascript",
+          "c",
+          "r",
+          "html",
+          "css",
+          "spring",
+          "sql",
+          "mysql"
+        ],
+        "management": [
+          "leadership",
+          "problem solving",
+          "time management"
+        ],
+        "aptitude": [
+          "critical thinking"
+        ],
+        "softskills": [
+          "communication",
+          "presentation",
+          "listening",
+          "teamwork",
+          "training",
+          "leadership",
+          "problem solving",
+          "critical thinking",
+          "time management",
+          "organization",
+          "passionate",
+          "creativity",
+          "emotional intelligence"
+        ],
+        "all": [
+          "python",
+          "java",
+          "javascript",
+          "c",
+          "r",
+          "html",
+          "css",
+          "spring",
+          "sql",
+          "mysql",
+          "leadership",
+          "problem solving",
+          "time management",
+          "critical thinking",
+          "communication",
+          "presentation",
+          "listening",
+          "teamwork",
+          "training",
+          "organization",
+          "passionate",
+          "creativity",
+          "emotional intelligence"
+        ]
+      },
+      "profile_image": "/static/avatars/cartoon13.png",
+      "resume_filename": "umesh Resume.pdf"
+    }
+  }
+}
