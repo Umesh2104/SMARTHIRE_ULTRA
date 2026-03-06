@@ -78,6 +78,72 @@ def validate_file(file, filename: str) -> tuple[bool, str]:
     return True, ''
 
 
+def validate_and_parse_resume(file, filename: str, save_path: str) -> dict:
+    """
+    Full pipeline: validate file → save → extract text → confirm it's a resume → extract skills.
+
+    Returns a result dict:
+    {
+        'ok': bool,
+        'error': str | None,       # set if ok=False
+        'text': str,               # extracted text (empty if failed)
+        'skills': list[str],       # skills found
+        'matched_keywords': list   # resume keywords matched
+    }
+
+    Usage in your Django view:
+        result = validate_and_parse_resume(request.FILES['resume'], filename, '/tmp/resume.pdf')
+        if not result['ok']:
+            return error_response(result['error'])
+        skills = result['skills']
+    """
+    # Step 1 — file-level validation (type, size, magic bytes)
+    ok, err = validate_file(file, filename)
+    if not ok:
+        return {'ok': False, 'error': err, 'text': '', 'skills': [], 'matched_keywords': []}
+
+    # Step 2 — save to disk so we can extract text
+    file.seek(0)
+    with open(save_path, 'wb') as f:
+        for chunk in iter(lambda: file.read(8192), b''):
+            f.write(chunk)
+
+    # Step 3 — extract text (PDF supported; DOC/DOCX needs python-docx — TODO)
+    ext = filename.rsplit('.', 1)[-1].lower()
+    if ext == 'pdf':
+        text = extract_text_from_pdf(save_path)
+    else:
+        # TODO: integrate python-docx here for .docx/.doc extraction
+        text = ''
+
+    # Step 4 — content check: is this actually a resume?
+    resume_ok, matched_kw = is_resume(text)
+    if not resume_ok:
+        try:
+            os.remove(save_path)   # don't keep non-resume files on disk
+        except OSError:
+            pass
+        return {
+            'ok': False,
+            'error': 'The uploaded file does not appear to be a resume. '
+                     'Please upload your CV or resume document.',
+            'text': text,
+            'skills': [],
+            'matched_keywords': matched_kw,
+        }
+
+    # Step 5 — extract skills
+    skills = extract_skills(text)
+
+    return {
+        'ok': True,
+        'error': None,
+        'text': text,
+        'skills': skills,
+        'matched_keywords': matched_kw,
+    }
+
+
 # ─────────────────────────────────────────────────────────────────
 # TEXT EXTRACTION
 # ─────────────────────────────────────────────────────────────────
